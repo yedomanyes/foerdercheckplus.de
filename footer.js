@@ -4,7 +4,7 @@
 <footer style="background:var(--surface-2);color:var(--text);padding:3.5rem 2rem 2rem;font-family:var(--font);border-top:1px solid var(--border);">
   <div style="max-width:var(--max-w);margin:0 auto">
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:3rem;margin-bottom:2.5rem">
-      <div style="grid-column: span 2;">
+      <div>
         <div style="display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.1rem;color:var(--text);margin-bottom:.875rem;letter-spacing:-.02em">
           FoerdercheckPlus
         </div>
