@@ -244,18 +244,6 @@
         if (e.target === overlay) toggleMenu();
     });
 
-    // Theme Toggle
-    const themeBtn = document.getElementById('theme-toggle-nav');
-    themeBtn?.addEventListener('click', () => {
-      const isDark = root.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        root.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-      } else {
-        root.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
 
     // Close menu on resize if screen gets bigger
     window.addEventListener('resize', () => {

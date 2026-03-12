@@ -18,8 +18,10 @@
   <script>
     // Initialize theme before rendering to avoid flash
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (savedTheme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
     }
   </script>
 
@@ -591,19 +593,6 @@
       }
     });
 
-    // Theme Toggle Logic
-    const themeBtn = document.getElementById('hp-theme-toggle');
-    const root = document.documentElement;
-
-    themeBtn?.addEventListener('click', () => {
-      if (root.getAttribute('data-theme') === 'dark') {
-        root.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-      } else {
-        root.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
 
     // Map logic removed
 

@@ -89,22 +89,21 @@ function initHeroSearch() {
 
 /* ── Global Dark Mode Toggle ───────────────────────── */
 function initDarkMode() {
-    const toggleBtns = document.querySelectorAll('.theme-toggle');
-    if (!toggleBtns.length) return;
-    toggleBtns.forEach(btn => {
-        const handleToggle = () => {
-            const root = document.documentElement;
-            if (root.getAttribute('data-theme') === 'dark') {
+    const root = document.documentElement;
+    
+    // Use delegation on document for all .theme-toggle clicks
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.theme-toggle');
+        if (btn) {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            if (isDark) {
                 root.removeAttribute('data-theme');
                 localStorage.setItem('theme', 'light');
             } else {
                 root.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
             }
-        };
-        // Remove old listeners to avoid duplicates
-        btn.removeEventListener('click', handleToggle);
-        btn.addEventListener('click', handleToggle);
+        }
     });
 }
 
