@@ -38,11 +38,14 @@
         /* --- HERO --- */
         .page-hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            padding: 100px 24px 80px;
+            padding: 120px 24px 100px;
             text-align: center;
             color: #fff;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .page-hero::before {
@@ -79,13 +82,27 @@
 
         /* --- CONTENT SECTIONS --- */
         .guide-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 80px 24px;
+            padding: 100px 24px;
         }
 
         .guide-block {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
+        }
+
+        .guide-grid-desktop {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        @media (max-width: 1100px) {
+            .guide-grid-desktop {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         h2.section-title {
@@ -115,24 +132,34 @@
         /* --- STEP CARDS --- */
         .steps-grid {
             display: grid;
-            gap: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
         }
 
         .step-premium {
             display: flex;
-            gap: 24px;
-            background: var(--surface);
-            padding: 32px;
-            border-radius: 24px;
+            flex-direction: column;
+            gap: 20px;
+            background: linear-gradient(145deg, var(--surface) 0%, var(--surface-2) 100%);
+            padding: 40px;
+            border-radius: 32px;
             border: 1px solid var(--border);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .step-premium {
+            background: linear-gradient(145deg, var(--surface-2) 0%, var(--surface) 100%);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.05);
         }
 
         .step-premium:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-            border-color: var(--blue-l);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-color: var(--blue);
         }
 
         .step-num {
@@ -244,10 +271,12 @@
             font-size: 1.05rem;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
             .step-premium {
-                flex-direction: column;
-                padding: 24px;
+                padding: 32px;
             }
             .page-hero {
                 padding: 80px 24px 60px;
@@ -257,6 +286,9 @@
             }
             .tips-callout {
                 padding: 32px 24px;
+            }
+            .guide-container {
+                padding: 60px 24px;
             }
         }
     </style>
@@ -273,18 +305,29 @@
 
     <main class="guide-container">
         
-        <!-- SECTION 1 -->
-        <section class="guide-block">
-            <h2 class="section-title">Was sind Förderprogramme?</h2>
-            <p class="text-lead">Staatliche Förderungen sind finanzielle Zuschüsse oder zinsgünstige Darlehen, mit denen Bund, Länder und die EU gezielt Projekte unterstützen, die im öffentlichen Interesse stehen.</p>
-            <p>Ob Sie Ihr Haus energetisch sanieren möchten, ein Unternehmen gründen oder als Familie Unterstützung suchen – für fast jedes Vorhaben gibt es passende Programme. Die Herausforderung besteht oft darin, den Überblick im „Förderdschungel“ zu behalten. Mit <strong>FoerderCheckPlus</strong> machen wir diese Suche für Sie transparent und einfach.</p>
-        </section>
+        <!-- SECTION 1 & 2 combined for better Desktop flow -->
+        <div class="guide-grid-desktop guide-block">
+            <section>
+                <h2 class="section-title">Was sind Förderprogramme?</h2>
+                <p class="text-lead">Staatliche Förderungen sind finanzielle Zuschüsse oder zinsgünstige Darlehen, mit denen Bund, Länder und die EU gezielt Projekte unterstützen.</p>
+                <p>Ob Sie Ihr Haus energetisch sanieren möchten, ein Unternehmen gründen oder als Familie Unterstützung suchen – für fast jedes Vorhaben gibt es passende Programme. Mit <strong>FoerderCheckPlus</strong> machen wir diese Suche für Sie transparent und einfach.</p>
+                
+                <h2 class="section-title" style="margin-top: 60px;">So finden Sie die Förderung</h2>
+                <p>Die Suche nach der passenden Unterstützung orientiert sich immer an Ihrem konkreten Ziel. Nutzen Sie unsere Tools, um Zeit zu sparen:</p>
+            </section>
 
-        <!-- SECTION 2 -->
+            <aside class="tips-callout" style="margin-top: 20px;">
+                <h2 style="margin-top: 0; margin-bottom: 24px; font-weight: 700; font-size: 1.5rem;">Quick-Tipps</h2>
+                <ul class="tips-list">
+                    <li><div><strong>Dokumentation:</strong> Belege vollständig hochladen.</div></li>
+                    <li><div><strong>Fristen:</strong> Abgabetermine strikt einhalten.</div></li>
+                    <li><div><strong>Kombinationen:</strong> Programme kombinieren.</div></li>
+                </ul>
+            </aside>
+        </div>
+
         <section class="guide-block">
-            <h2 class="section-title">So finden Sie die richtige Förderung</h2>
-            <p>Die Suche nach der passenden Unterstützung orientiert sich immer an Ihrem konkreten Ziel. Nutzen Sie unsere Tools, um Zeit zu sparen:</p>
-            <div class="links-grid" style="margin-top: 32px;">
+            <div class="links-grid">
                 <div class="link-card" style="cursor: default;">
                     <span class="link-icon">🔍</span>
                     <span class="link-text">Suche via Schlagwort</span>
@@ -303,7 +346,7 @@
         <!-- SECTION 3 -->
         <section class="guide-block">
             <h2 class="section-title">Der Weg zur Auszahlung</h2>
-            <p class="text-lead">Vom ersten Check bis zum Geld auf dem Konto – folgen Sie diesem bewährten Prozess:</p>
+            <p class="text-lead">Vom ersten Check bis zum Geld auf dem Konto – folgen Sie diesem bewährten Prozess für maximalen Erfolg:</p>
             
             <div class="steps-grid">
                 <div class="step-premium">
