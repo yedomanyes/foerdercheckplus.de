@@ -3405,12 +3405,75 @@ button:focus-visible {
   .hp-state {
     flex: 0 0 calc(50% - 1.5rem) !important;
     min-width: 140px !important;
+    flex-shrink: 0 !important;
     aspect-ratio: 768 / 1024 !important;
     scroll-snap-align: start !important;
     display: flex !important;
     border-radius: 16px !important;
     overflow: hidden !important;
     position: relative !important;
+  }
+
+  .hp-prog {
+    min-width: 85% !important;
+    width: 85% !important;
+    flex: 0 0 85% !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background: var(--surface) !important;
+  }
+
+  .hp-cats {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    padding: 0 1.5rem 20px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important; 
+  }
+
+  .hp-cat {
+    grid-column: span 1 !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    min-height: auto !important;
+    flex: none !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+    position: relative !important;
+    display: flex !important;
+  }
+
+  .hp-cat__img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .hp-cat__name {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    right: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8) !important;
+    color: #fff !important;
+    margin: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .hp-cat .hp-cat__overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%) !important;
+  }
+
   .hp-state__title {
     font-size: 1.15rem !important;
     padding: 18px !important;
@@ -3471,7 +3534,7 @@ button:focus-visible {
     gap: 12px;
   }
 
-  .hp-progs, .programs-grid {
+  .programs-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
