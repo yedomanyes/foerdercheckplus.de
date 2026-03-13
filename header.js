@@ -18,8 +18,6 @@
     });
   })();
 </script>
-<script src="https://quge5.com/88/tag.min.js" data-zone="219466" async data-cfasync="false"></script>
-<script>(function(s){s.dataset.zone='10727772',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Poppins',system-ui,sans-serif}
@@ -185,8 +183,7 @@
   <div class="site-nav__wrap">
     <div class="site-nav__left">
         <a href="/" class="site-nav__logo">
-          <img src="förderchecklogo.png" alt="FoerdercheckPlus" style="height:38px; width:auto;">
-          <span style="font-size:1.15rem; font-weight:800; color:var(--text); margin-left:2px; letter-spacing:-0.02em;">FoerderCheckPlus.de</span>
+          <span style="font-size:1.15rem; font-weight:800; color:var(--text); letter-spacing:-0.02em;">FoerderCheckPlus.de</span>
         </a>
         <div class="site-nav__links">
             <a href="/" class="site-nav__link" data-page="index.html">Startseite</a>
