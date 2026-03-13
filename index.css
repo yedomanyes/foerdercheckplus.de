@@ -3389,163 +3389,28 @@ button:focus-visible {
     display: none !important;
   }
 
-<<<<<<< HEAD
-
-  .hp-state {
-    flex: 0 0 calc(80vw - 2rem) !important;
-    max-width: 320px !important;
-    aspect-ratio: 768 / 1024 !important;
-    scroll-snap-align: start !important;
-    display: flex !important;
-    border-radius: 20px !important;
-=======
   .hp-states {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-    overflow-x: visible !important;
-  }
-
-  .hp-state {
-    flex: none !important;
-    width: 100% !important;
-    aspect-ratio: 768 / 1024 !important;
-    display: flex !important;
-    border-radius: 16px !important;
->>>>>>> 0da4670ee6741d8c851cb92bd540e68c0c4e63f8
-  }
-
-  .hp-prog {
-    min-width: calc(90vw - 3rem) !important; /* Force nearly full width to show only one */
-    flex: 0 0 auto !important;
-    min-height: auto !important;
-    scroll-snap-align: start !important;
-    aspect-ratio: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  /* Scroll Hint Animation */
-  .hp-prog--hint {
-    animation: hpScrollHint 1.2s ease-in-out infinite alternate !important;
-  }
-
-  @keyframes hpScrollHint {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-12px); }
-  }
-
-  /* --- UNIQUE BENTO GRID FOR CATEGORIES --- */
-  .hp-cats {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
-    padding: 0 1.5rem 20px !important;
-    margin: 0 !important;
-    overflow-x: hidden !important; 
-  }
-
-  /* When 'Show More' is clicked, Categories switch to Horizontal Scroll */
-  .hp-cats.is-scrolling {
     display: flex !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory !important;
-    gap: 12px !important;
+    gap: 16px !important;
     padding: 0 1.5rem 30px !important;
     margin: 0 !important;
-    grid-template-columns: none !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch !important;
     scroll-padding-left: 1.5rem !important;
   }
 
-  .hp-cat {
-    grid-column: span 1 !important;
-    width: 100% !important;
-    min-height: 160px !important;
-    flex: none !important;
-    border-radius: 20px !important;
+  .hp-state {
+    flex: 0 0 calc(50% - 1.5rem) !important;
+    min-width: 140px !important;
+    aspect-ratio: 768 / 1024 !important;
+    scroll-snap-align: start !important;
+    display: flex !important;
+    border-radius: 16px !important;
     overflow: hidden !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important;
     position: relative !important;
-    display: flex !important;
-  }
-
-  /* Initial Bento pattern: 1 Large top, then small */
-  .hp-cats:not(.is-scrolling) .hp-cat:nth-child(1) {
-    grid-column: span 2 !important;
-    min-height: 220px !important;
-  }
-
-  /* Hide beyond 3 items initially (1 full width top + 2 small) */
-  .hp-cats:not(.is-scrolling) .hp-cat:nth-child(n+4) {
-    display: none !important;
-  }
-
-  /* Consistent size in scroll mode */
-  .hp-cats.is-scrolling .hp-cat {
-    flex: 0 0 calc(75% - 12px) !important;
-    min-height: 180px !important;
-    scroll-snap-align: start !important;
-  }
-
-  /* All cards become consistent size in scroll mode */
-  .hp-cats.is-scrolling .hp-cat {
-    flex: 0 0 calc(75% - 12px) !important;
-    min-height: 180px !important;
-    scroll-snap-align: center !important;
-  }
-
-  .hp-cat__name {
-    font-size: 1.1rem !important;
-    font-weight: 800 !important;
-    bottom: 15px !important;
-    left: 15px !important;
-    padding: 0 !important;
-    background: transparent !important;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
-  }
-
-  .hp-cat .hp-cat__overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%) !important;
-  }
-  
-  .hp-states::-webkit-scrollbar,
-  .hp-progs::-webkit-scrollbar,
-  .hp-cats::-webkit-scrollbar {
-    display: none !important;
-  }
-  
-  .hp-prog {
-    flex: 0 0 240px !important; 
-    min-height: 280px !important;
-    scroll-snap-align: start !important;
-    aspect-ratio: auto !important;
-    display: flex !important;
-  }
-
-  .hp-cat {
-    flex: none !important;
-    width: 100% !important;
-    min-height: 150px !important; /* Increased from 130px */
-    scroll-snap-align: start !important;
-    aspect-ratio: auto !important;
-    display: flex !important;
-  }
-
-  .hp-cat .hp-cat__name {
-    font-size: 1rem !important; /* Slightly larger */
-    padding: 15px 20px !important;
-    backdrop-filter: none !important;
-    background: transparent !important;
-  }
-
-  .hp-state--extra,
-  .hp-prog--extra,
-  .hp-cat--extra {
-    display: flex !important;
-  }
-  
   .hp-state__title {
     font-size: 1.15rem !important;
     padding: 18px !important;
