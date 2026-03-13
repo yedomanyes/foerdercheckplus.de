@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ratgeber & Guides: Wie funktionieren Förderprogramme? | FoerderCheckPlus</title>
-    <meta name="description" content="Verständliche Ratgeber zu Förderprogrammen in Deutschland. Erfahren Sie, wie Sie Förderungen finden und erfolgreich beantragen.">
+    <title>Ratgeber & Guides: Ihr Weg zur Förderung | FoerderCheckPlus</title>
+    <meta name="description" content="Verständliche Ratgeber zu Förderprogrammen 2026. Ihr Schritt-für-Schritt Guide für BAFA, KfW und regionale Förderungen.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Dark Mode Init (prevents flash) -->
+    
     <script>
       (function() {
         var t = localStorage.getItem('theme');
@@ -16,7 +16,7 @@
         else { document.documentElement.removeAttribute('data-theme'); }
       })();
     </script>
-    <!-- Google tag (gtag.js) -->
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4VE8HX6XX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -24,147 +24,386 @@
       gtag('js', new Date());
       gtag('config', 'G-N4VE8HX6XX');
     </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2068043467304653"
-         crossorigin="anonymous"></script>
+
     <style>
-        .guides-hero {
-            padding: 80px 24px 60px;
+        :root {
+            --guide-accent: #3B82F6;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif !important;
+            line-height: 1.6;
+        }
+
+        /* --- HERO --- */
+        .page-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 100px 24px 80px;
             text-align: center;
-            background: var(--surface-2);
-            border-bottom: 1px solid var(--border);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
         }
-        .guide-section {
-            padding: 60px 0;
+
+        .page-hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 120%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            z-index: 0;
         }
-        .guide-content {
-            max-width: 800px;
+
+        .page-hero__h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+            font-weight: 800 !important;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero__sub {
+            font-size: 1.2rem !important;
+            max-width: 700px;
             margin: 0 auto;
+            color: #94a3b8;
+            position: relative;
+            z-index: 1;
         }
-        .guide-step {
+
+        /* --- CONTENT SECTIONS --- */
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .guide-block {
+            margin-bottom: 80px;
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+        }
+
+        h2.section-title::before {
+            content: "";
+            width: 4px;
+            height: 32px;
+            background: var(--guide-accent);
+            border-radius: 2px;
+        }
+
+        p.text-lead {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        /* --- STEP CARDS --- */
+        .steps-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .step-premium {
             display: flex;
             gap: 24px;
-            margin-bottom: 32px;
-            padding: 24px;
             background: var(--surface);
+            padding: 32px;
+            border-radius: 24px;
             border: 1px solid var(--border);
-            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .guide-step__num {
-            width: 40px;
-            height: 40px;
+
+        .step-premium:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            border-color: var(--blue-l);
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
             background: var(--blue);
-            color: white;
+            color: #fff;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .step-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- SUCCESS TIPS CALLOUT --- */
+        .tips-callout {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 32px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tips-callout::after {
+            content: "💡";
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 120px;
+            opacity: 0.05;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 20px;
+        }
+
+        .tips-list li {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .tips-list li::before {
+            content: "✓";
+            color: var(--blue);
+            font-weight: 900;
+            font-size: 1.2rem;
+            background: rgba(59, 130, 246, 0.1);
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
             flex-shrink: 0;
         }
-        .internal-links {
+
+        /* --- QUICK LINKS --- */
+        .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
-        .internal-link-card {
-            padding: 16px;
-            background: var(--surface-2);
+
+        .link-card {
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
             text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            transition: all 0.2s;
-            text-align: center;
+            transition: all 0.2s ease;
         }
-        .internal-link-card:hover {
+
+        .link-card:hover {
             border-color: var(--blue);
             background: var(--blue-l);
-            color: var(--blue);
+            transform: translateX(4px);
+        }
+
+        .link-icon {
+            font-size: 1.8rem;
+        }
+
+        .link-text {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 768px) {
+            .step-premium {
+                flex-direction: column;
+                padding: 24px;
+            }
+            .page-hero {
+                padding: 80px 24px 60px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .tips-callout {
+                padding: 32px 24px;
+            }
         }
     </style>
 </head>
 <body>
     <script src="header.js"></script>
 
-    <section class="guides-hero">
+    <header class="page-hero">
         <div class="container">
             <h1 class="page-hero__h1">Förder-Guides 2026</h1>
-            <p class="page-hero__sub">Alles, was Sie wissen müssen, um staatliche Gelder für Ihr Projekt zu erhalten.</p>
+            <p class="page-hero__sub">In wenigen Schritten zur staatlichen Unterstützung. Ihr umfassender Ratgeber für die wichtigsten Förderprogramme in Deutschland.</p>
         </div>
-    </section>
+    </header>
 
-    <section class="guide-section">
-        <div class="container guide-content">
-            <h2>1. Einführung: Was sind Förderprogramme?</h2>
-            <p>Förderprogramme sind finanzielle Hilfen des Staates (Bund, Länder oder EU), um bestimmte Ziele zu fördern. Das können der Klimaschutz, die Gründung eines Unternehmens oder soziale Unterstützung für Familien sein. In Deutschland gibt es tausende Programme – die Kunst liegt darin, das richtige für Ihre Situation zu finden.</p>
+    <main class="guide-container">
+        
+        <!-- SECTION 1 -->
+        <section class="guide-block">
+            <h2 class="section-title">Was sind Förderprogramme?</h2>
+            <p class="text-lead">Staatliche Förderungen sind finanzielle Zuschüsse oder zinsgünstige Darlehen, mit denen Bund, Länder und die EU gezielt Projekte unterstützen, die im öffentlichen Interesse stehen.</p>
+            <p>Ob Sie Ihr Haus energetisch sanieren möchten, ein Unternehmen gründen oder als Familie Unterstützung suchen – für fast jedes Vorhaben gibt es passende Programme. Die Herausforderung besteht oft darin, den Überblick im „Förderdschungel“ zu behalten. Mit <strong>FoerderCheckPlus</strong> machen wir diese Suche für Sie transparent und einfach.</p>
+        </section>
 
-            <h2 style="margin-top: 48px;">2. Wie finde ich die passende Förderung?</h2>
-            <p>Die Suche beginnt meist mit der Frage: Was möchte ich erreichen? Auf <strong>FoerderCheckPlus</strong> haben wir die Programme nach Themen sortiert:</p>
-            <ul>
-                <li>Nutzen Sie die Suchfunktion auf der Startseite.</li>
-                <li>Filtern Sie nach Kategorien wie "Energie", "Business" oder "Familie".</li>
-                <li>Prüfen Sie die regionalen Programme Ihres Bundeslandes.</li>
-            </ul>
+        <!-- SECTION 2 -->
+        <section class="guide-block">
+            <h2 class="section-title">So finden Sie die richtige Förderung</h2>
+            <p>Die Suche nach der passenden Unterstützung orientiert sich immer an Ihrem konkreten Ziel. Nutzen Sie unsere Tools, um Zeit zu sparen:</p>
+            <div class="links-grid" style="margin-top: 32px;">
+                <div class="link-card" style="cursor: default;">
+                    <span class="link-icon">🔍</span>
+                    <span class="link-text">Suche via Schlagwort</span>
+                </div>
+                <div class="link-card" style="cursor: default;">
+                    <span class="link-icon">📂</span>
+                    <span class="link-text">Filter nach Kategorien</span>
+                </div>
+                <div class="link-card" style="cursor: default;">
+                    <span class="link-icon">📍</span>
+                    <span class="link-text">Regionale Programme</span>
+                </div>
+            </div>
+        </section>
 
-            <h2 style="margin-top: 48px;">3. Schritt-für-Schritt zur Förderung</h2>
+        <!-- SECTION 3 -->
+        <section class="guide-block">
+            <h2 class="section-title">Der Weg zur Auszahlung</h2>
+            <p class="text-lead">Vom ersten Check bis zum Geld auf dem Konto – folgen Sie diesem bewährten Prozess:</p>
             
-            <div class="guide-step">
-                <div class="guide-step__num">1</div>
-                <div>
-                    <h3>Voraussetzungen prüfen</h3>
-                    <p>Lesen Sie genau, wer antragsberechtigt ist. Oft sind bestimmte Einkommensgrenzen oder technische Standards (z.B. Energieeffizienz) entscheidend.</p>
+            <div class="steps-grid">
+                <div class="step-premium">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h3>Voraussetzungen prüfen</h3>
+                        <p>Analysieren Sie die Förderrichtlinien. Wer wird gefördert? Welche technischen Standards müssen erfüllt sein? Sind Einkommensgrenzen zu beachten?</p>
+                    </div>
+                </div>
+
+                <div class="step-premium">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h3>Experten einbinden</h3>
+                        <p>Gerade bei Photovoltaik oder Wärmepumpen ist eine professionelle Planung entscheidend. Oft ist die Einbindung von Energieberatern sogar Förderbedingung.</p>
+                    </div>
+                </div>
+
+                <div class="step-premium">
+                    <div class="step-num">3</div>
+                    <div class="step-content" id="wichtigster-schritt">
+                        <h3>Antrag stellen (VOR Beginn!)</h3>
+                        <p><strong>Das Wichtigste:</strong> Fast alle Programme folgen dem „Vorbeginns-Prinzip“. Sie dürfen erst mit dem Projekt starten, wenn der Antrag gestellt (und oft genehmigt) ist.</p>
+                    </div>
+                </div>
+
+                <div class="step-premium">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h3>Umsetzung & Nachweis</h3>
+                        <p>Nachdem Ihr Projekt abgeschlossen ist, reichen Sie alle Rechnungen und Verwendungsnachweise online beim Fördergeber ein.</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="guide-step">
-                <div class="guide-step__num">2</div>
-                <div>
-                    <h3>Beratung suchen (falls nötig)</h3>
-                    <p>Bei komplexen Themen wie einer energetischen Sanierung ist ein Energieberater oft Pflicht und wird selbst gefördert.</p>
-                </div>
-            </div>
-
-            <div class="guide-step">
-                <div class="guide-step__num">3</div>
-                <div>
-                    <h3>Antrag VOR Projektbeginn stellen</h3>
-                    <p><strong>Wichtig:</strong> Bei fast allen Programmen muss der Antrag gestellt und oft auch genehmigt sein, bevor Sie einen Auftrag vergeben oder mit der Arbeit beginnen!</p>
-                </div>
-            </div>
-
-            <div class="guide-step">
-                <div class="guide-step__num">4</div>
-                <div>
-                    <h3>Nachweise einreichen</h3>
-                    <p>Nach Abschluss des Projekts reichen Sie Rechnungen und Verwendungsnachweise ein. Danach erfolgt die Auszahlung.</p>
-                </div>
-            </div>
-
-            <h2 style="margin-top: 48px;">4. Tipps für den Erfolg</h2>
-            <div class="info-box info-box--tip" style="margin-bottom: 32px; padding: 24px; border-radius: 16px;">
-                <ul style="margin: 0;">
-                    <li><strong>Vollständigkeit:</strong> Achten Sie darauf, alle geforderten Dokumente direkt hochzuladen.</li>
-                    <li><strong>Fristen:</strong> Notieren Sie sich alle Abgabefristen. Verpasste Fristen bedeuten meist den Verlust der Förderung.</li>
-                    <li><strong>Kombinierbarkeit:</strong> Viele Programme (z.B. BAFA und KfW) lassen sich kombinieren. Fragen Sie nach!</li>
+        <!-- SECTION 4 -->
+        <section class="guide-block">
+            <div class="tips-callout">
+                <h2 style="margin-top: 0; margin-bottom: 24px; font-weight: 700;">3 Tipps für Ihren Erfolg</h2>
+                <ul class="tips-list">
+                    <li>
+                        <div>
+                            <strong>Dokumentation:</strong> Laden Sie alle Belege von Anfang an vollständig und gut lesbar hoch. Lücken führen zu langen Wartezeiten.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Fristen:</strong> Notieren Sie sich Abgabetermine. Verpasste Fristen lassen sich nachträglich fast nie heilen.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Kombinationen:</strong> Viele Programme von BAFA und KfW lassen sich kombinieren, um die maximale Fördersumme zu erreichen.
+                        </div>
+                    </li>
                 </ul>
             </div>
+        </section>
 
-            <h2 style="margin-top: 48px;">5. Beliebte Themen entdecken</h2>
-            <div class="internal-links">
-                <a href="waermepumpe-foerderung.html" class="internal-link-card">Wärmepumpe</a>
-                <a href="photovoltaik-foerderung.html" class="internal-link-card">Photovoltaik</a>
-                <a href="gruenderzuschuss.html" class="internal-link-card">Gründerzuschuss</a>
-                <a href="familienfoerderung.html" class="internal-link-card">Familienförderung</a>
-                <a href="studienfoerderung.html" class="internal-link-card">BAföG & Studium</a>
-                <a href="e-auto-foerderung.html" class="internal-link-card">E-Mobilität</a>
-                <a href="kfw-foerderung.html" class="internal-link-card">KfW Kredite</a>
-                <a href="heizung-austausch-foerderung.html" class="internal-link-card">Heizungstausch</a>
+        <!-- SECTION 5 -->
+        <section class="guide-block">
+            <h2 class="section-title">Direkt zu den Top-Themen</h2>
+            <div class="links-grid">
+                <a href="waermepumpe-foerderung.html" class="link-card">
+                    <span class="link-icon">🏠</span>
+                    <span class="link-text">Wärmepumpe</span>
+                </a>
+                <a href="photovoltaik-foerderung.html" class="link-card">
+                    <span class="link-icon">☀️</span>
+                    <span class="link-text">Photovoltaik</span>
+                </a>
+                <a href="gruenderzuschuss.html" class="link-card">
+                    <span class="link-icon">🚀</span>
+                    <span class="link-text">Gründerzuschuss</span>
+                </a>
+                <a href="familienfoerderung.html" class="link-card">
+                    <span class="link-icon">👨‍👩‍👧</span>
+                    <span class="link-text">Familie</span>
+                </a>
+                <a href="studienfoerderung.html" class="link-card">
+                    <span class="link-icon">🎓</span>
+                    <span class="link-text">BAföG & Studium</span>
+                </a>
+                <a href="e-auto-foerderung.html" class="link-card">
+                    <span class="link-icon">🚗</span>
+                    <span class="link-text">E-Mobilität</span>
+                </a>
+                <a href="kfw-foerderung.html" class="link-card">
+                    <span class="link-icon">🏦</span>
+                    <span class="link-text">KfW Kredite</span>
+                </a>
+                <a href="heizung-austausch-foerderung.html" class="link-card">
+                    <span class="link-icon">🔥</span>
+                    <span class="link-text">Heizungstausch</span>
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <script src="footer.js"></script>
     <script src="main.js"></script>
