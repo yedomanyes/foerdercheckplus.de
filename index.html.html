@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FoerdercheckPlus   Staatliche Förderungen 2026 - finden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>FoerdercheckPlus | Staatliche Förderungen 2026 - finden</title>
   <meta name="description"
     content="Alle Förderprogramme von Bund, Ländern und EU verständlich erklärt. Kostenlos die passende Förderung finden.">
   <link rel="canonical" href="https://foerdercheckplus.de/">
@@ -25,8 +25,18 @@
     }
   </script>
 
-  <link rel="stylesheet" href="index.css">
   <meta name="coinzilla" content="alf1eca8ee3a6f7a4e989552e3eac1d6" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4VE8HX6XX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N4VE8HX6XX');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2068043467304653"
+       crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -62,11 +72,11 @@
 
       <div class="hp-hero__tags">
         <span class="hp-hero__tag-label">Beliebt:</span>
-        <button class="hp-hero__tag" data-q="Wärmepumpe">🔧 Wärmepumpe</button>
-        <button class="hp-hero__tag" data-q="Photovoltaik">☀️ Photovoltaik</button>
-        <button class="hp-hero__tag" data-q="E-Auto">⚡ E-Auto</button>
-        <button class="hp-hero__tag" data-q="Gründerzuschuss">🚀 Gründerzuschuss</button>
-        <button class="hp-hero__tag" data-q="BAföG">🎓 BAföG</button>
+        <button class="hp-hero__tag" data-q="Wärmepumpe">Wärmepumpe</button>
+        <button class="hp-hero__tag" data-q="Photovoltaik">Photovoltaik</button>
+        <button class="hp-hero__tag" data-q="E-Auto">E-Auto</button>
+        <button class="hp-hero__tag" data-q="Gründerzuschuss">Gründerzuschuss</button>
+        <button class="hp-hero__tag" data-q="BAföG">BAföG</button>
       </div>
 
       <div class="hp-hero__stats">
@@ -100,318 +110,375 @@
         </p>
       </div>
 
-      <div class="hp-cats">
+      <div class="hp-cats" id="cats-grid">
         <a href="foerderungen.html?q=Photovoltaik" class="hp-cat">
-          <img src="PhotoVoikTAIK.png" alt="Photovoltaik" class="hp-cat__img">
+          <img src="images/photovoltaik_card.png" alt="Photovoltaik" class="hp-cat__img">
           <div class="hp-cat__overlay"></div>
           <h3 class="hp-cat__name">Photovoltaik</h3>
         </a>
 
         <a href="foerderungen.html?q=Wärmepumpe" class="hp-cat">
-          <img src="WärmePuimpeCard.png" alt="Wärmepumpe" class="hp-cat__img">
+          <img src="images/waermepumpe_card.png" alt="Wärmepumpe" class="hp-cat__img">
           <div class="hp-cat__overlay"></div>
           <h3 class="hp-cat__name">Wärmepumpe</h3>
         </a>
 
         <a href="foerderungen.html?kat=business" class="hp-cat">
-          <img src="GründerförderungCard.png" alt="Gründerförderung" class="hp-cat__img">
+          <img src="images/gründerförderungcard.png" alt="Gründerförderung" class="hp-cat__img">
           <div class="hp-cat__overlay"></div>
           <h3 class="hp-cat__name">Gründerförderung</h3>
         </a>
 
         <a href="foerderungen.html?q=BAföG" class="hp-cat">
-          <img src="BaFögCard.png" alt="BAföG" class="hp-cat__img">
+          <img src="images/bafögcard.png" alt="BAföG" class="hp-cat__img">
           <div class="hp-cat__overlay"></div>
           <h3 class="hp-cat__name">BAföG</h3>
         </a>
 
-        <a href="foerderungen.html?kat=mobil" class="hp-cat">
-          <img src="MobilitätCard.png" alt="Mobilität" class="hp-cat__img">
+        <a href="foerderungen.html?q=Mobilität" class="hp-cat">
+          <img src="images/mobilitätcard.png" alt="Mobilität" class="hp-cat__img">
           <div class="hp-cat__overlay"></div>
           <h3 class="hp-cat__name">Mobilität</h3>
         </a>
 
         <a href="foerderungen.html?kat=familie" class="hp-cat">
-          <img src="FamilieCard.png" alt="Familienförderung" class="hp-cat__img">
+          <img src="images/familiecard.png" alt="Familienförderung" class="hp-cat__img">
           <div class="hp-cat__overlay"></div>
           <h3 class="hp-cat__name">Familienförderung</h3>
         </a>
+
+        <a href="foerderungen.html?kat=wohnen" class="hp-cat hp-cat--extra">
+          <img src="images/SanierungKatroegorieCard.png" alt="Wohnen & Sanieren" class="hp-cat__img">
+          <div class="hp-cat__overlay"></div>
+          <h3 class="hp-cat__name">Wohnen & Sanieren</h3>
+        </a>
+
+        <a href="foerderungen.html?q=Energieberatung" class="hp-cat hp-cat--extra">
+          <img src="images/BeratungKategorieCard.png" alt="Energieberatung" class="hp-cat__img">
+          <div class="hp-cat__overlay"></div>
+          <h3 class="hp-cat__name">Energieberatung</h3>
+        </a>
+
+        <a href="foerderungen.html?q=Batteriespeicher" class="hp-cat hp-cat--extra">
+          <img src="images/BatteriespeicherCardKategorie.png" alt="Batteriespeicher" class="hp-cat__img">
+          <div class="hp-cat__overlay"></div>
+          <h3 class="hp-cat__name">Batteriespeicher</h3>
+        </a>
+
+        <a href="foerderungen.html?q=Barrierefrei" class="hp-cat hp-cat--extra">
+          <img src="images/BarriereFreiCardKategorie.png" alt="Barrierefrei" class="hp-cat__img">
+          <div class="hp-cat__overlay"></div>
+          <h3 class="hp-cat__name">Barrierefrei</h3>
+        </a>
+      </div>
+
+      <div class="text-center mt-8">
+        <button id="show-more-cats" class="btn btn--outline">Weitere Kategorien anzeigen</button>
       </div>
     </div>
   </section>
 
-  <!-- ------------------ PROGRAMME ------------------ -->
-  <section class="hp-sec">
+  <!-- ------------------ BELIEBTE PROGRAMME ------------------ -->
+  <section class="hp-sec hp-sec--alt">
     <div class="hp-sec__inner">
-      <div class="hp-sec__header-row">
-        <div>
-          <span class="hp-sec__eyebrow">Aktuell</span>
-          <h2 class="hp-sec__title" style="margin-bottom:0">Beliebte Förderprogramme</h2>
-          <p class="hp-sec__sub" style="margin-top: 8px;">Finden Sie die passenden staatlichen Förderungen.</p>
-        </div>
-        <a href="foerderungen.html"
-          style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border:1.5px solid var(--border);border-radius:10px;font-size:.84rem;font-weight:600;color:var(--text-2);text-decoration:none;background:var(--surface);transition:background .14s,border-color .14s">
-          Alle Programme ansehen
+      <div class="hp-sec__head hp-sec__head--c">
+        <span class="hp-sec__eyebrow">Highlights</span>
+        <h2 class="hp-sec__title">Meistgesuchte Förderprogramme</h2>
+        <p class="hp-sec__sub">Diese Programme werden aktuell am häufigsten angefragt       <div class="hp-progs" id="progs-grid">
+        <!-- 1 -->
+        <a href="foerderungen.html?q=Photovoltaik" class="hp-prog hp-prog--hint">
+          <div class="hp-prog__img-wrap">
+            <img src="images/photovoltaik_card.png" alt="Photovoltaik" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">Energie</span>
+              <span class="hp-prog__amount-badge">Bis 6.000 €</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <div class="hp-prog__trust">Offiziell geprüft & aktuell</div>
+            <h3 class="hp-prog__name">Photovoltaik-Förderung</h3>
+            <p class="hp-prog__desc">Zuschüsse für Solaranlagen und Batteriespeicher in Bayern.</p>
+            <div class="hp-prog__cta is-disabled">
+              <span>Jetzt Informieren</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2 -->
+        <a href="foerderungen.html?q=Wärmepumpe" class="hp-prog">
+          <div class="hp-prog__img-wrap">
+            <img src="images/waermepumpe_card.png" alt="Wärmepumpe" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">Heizung</span>
+              <span class="hp-prog__amount-badge">Bis 70 %</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <div class="hp-prog__trust">Meistgenutztes Programm</div>
+            <h3 class="hp-prog__name">Wärmepumpen-Zuschuss</h3>
+            <p class="hp-prog__desc">Aktuelle BEG-Förderung für den Heizungstausch im Bund.</p>
+            <div class="hp-prog__cta is-disabled">
+              <span>Jetzt Informieren</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3 - Hidden until valid image ready -->
+        <!--
+        <a href="foerderungen.html?q=Gründer" class="hp-prog">
+          ...
+        </a>
+        -->
+
+        <!-- 4 (Extra) - Hidden until images ready -->
+        <!--
+        <a href="foerderungen.html?q=E-Auto" class="hp-prog hp-prog--extra">
+          ...
+        </a>
+        -->
+
+        <!-- 5 (Extra) - Hidden until images ready -->
+        <!--
+        <a href="foerderungen.html?q=Fenster" class="hp-prog hp-prog--extra">
+          ...
+        </a>
+        -->
+
+        <!-- 6 (Extra) - Hidden until images ready -->
+        <!--
+        <a href="foerderungen.html?q=Studium" class="hp-prog hp-prog--extra">
+          ...
+        </a>
+        -->
+
+        <!-- 7 (Extra) - Hidden until images ready -->
+        <!--
+        <a href="foerderungen.html?q=Wallbox" class="hp-prog hp-prog--extra">
+          <div class="hp-prog__img-wrap">
+            <img src="images/ladeinfrastruktur_hp.png" alt="Wallbox" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">Energie</span>
+              <span class="hp-prog__amount-badge">Zuschuss</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <h3 class="hp-prog__name">Wallbox-Förderung</h3>
+            <p class="hp-prog__desc">Zuschüsse für private Ladestationen und Infrastruktur.</p>
+            <div class="hp-prog__cta">
+              <span>Programm prüfen</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+        -->
+
+        <!-- 8 (Extra) - Hidden until images ready -->
+        <!--
+        <a href="foerderungen.html?q=Digitalbox" class="hp-prog hp-prog--extra">
+          <div class="hp-prog__img-wrap">
+            <img src="images/digitalbox_card.png" alt="Digitalbonus" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">KMU</span>
+              <span class="hp-prog__amount-badge">Bis 10.000 €</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <h3 class="hp-prog__name">Digitalbonus Bayern</h3>
+            <p class="hp-prog__desc">Förderung für die Digitalisierung kleiner und mittlerer Unternehmen.</p>
+            <div class="hp-prog__cta">
+              <span>Programm prüfen</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+        -->
+
+        <!-- 9 (Extra) - Hidden until images ready -->
+        <!--
+        <a href="foerderungen.html?q=Meister" class="hp-prog hp-prog--extra">
+          <div class="hp-prog__img-wrap">
+            <img src="images/meister_bafoeg_alt.png" alt="Aufstiegs-BAföG" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">Karriere</span>
+              <span class="hp-prog__amount-badge">Zuschuss</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <h3 class="hp-prog__name">Aufstiegs-BAföG</h3>
+            <p class="hp-prog__desc">Förderung für Meister, Fachwirte und berufliche Fortbildungen.</p>
+            <div class="hp-prog__cta">
+              <span>Programm prüfen</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+        -->
+
+        <!-- 10 (Extra) - Hidden until images ready -->
+        <!--
+        <a href="foerderungen.html?q=Biomasse" class="hp-prog hp-prog--extra">
+          <div class="hp-prog__img-wrap">
+            <img src="images/biomasse_card.png" alt="Holzheizung" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">Effizienz</span>
+              <span class="hp-prog__amount-badge">Zuschuss</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <h3 class="hp-prog__name">Biomasse-Heizung</h3>
+            <p class="hp-prog__desc">Förderung für Pelletheizungen und moderne Holzfeuerungsanlagen.</p>
+            <div class="hp-prog__cta">
+              <span>Programm prüfen</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3 (Promoted from Extra) -->
+        <a href="foerderungen.html?q=Denkmal" class="hp-prog">
+          <div class="hp-prog__img-wrap">
+            <img src="images/kfw_denkmal_card.png" alt="Denkmalpflege" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">Bauen</span>
+              <span class="hp-prog__amount-badge">Sonder-Kfw</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <h3 class="hp-prog__name">Bauen im Denkmal</h3>
+            <p class="hp-prog__desc">Spezielle KfW-Kredite für die Sanierung denkmalgeschützter Objekte.</p>
+            <div class="hp-prog__cta is-disabled">
+              <span>Jetzt Informieren</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 12 (Extra) -->
+        <a href="foerderungen.html?q=Jung" class="hp-prog hp-prog--extra">
+          <div class="hp-prog__img-wrap">
+            <img src="images/altkauftjung.png" alt="Jung kauft Alt" class="hp-prog__img">
+            <div class="hp-prog__badges">
+              <span class="hp-prog__badge">Wohnen</span>
+              <span class="hp-prog__amount-badge">Zinsvorteil</span>
+            </div>
+          </div>
+          <div class="hp-prog__content">
+            <h3 class="hp-prog__name">Jung kauft Alt</h3>
+            <p class="hp-prog__desc">Förderprogramm für junge Familien beim Kauf sanierungsbedürftiger Bestandsimmobilien.</p>
+            <div class="hp-prog__cta is-disabled">
+              <span>Jetzt Informieren</span>
+            </div>
+          </div>
         </a>
       </div>
-
-      <!-- Cards Grid Layout -->
-      <div style="margin-top: 2rem;">
-
-        <!-- Cards Grids -->
-        <div class="programs-grid" id="programs-grid">
-
-          <!-- Card 1 -->
-          <a href="waermepumpe-foerderung.html" class="program-card premium-card" data-land="Alle">
-            <div class="program-card__img-wrapper">
-              <img src="WärmePuimpeCard.png" alt="Wärmepumpe Förderung" class="program-card__img">
-              <div class="program-card__img-overlay"></div>
-            </div>
-            <div class="program-card__content">
-              <div class="program-card__badges">
-                <span class="badge badge--wohnen">Haus & Energie</span>
-                <span class="program-card__amount-badge">Bis 70 % €</span>
-              </div>
-              <h3 class="program-card__name">Wärmepumpe Förderung</h3>
-              <p class="program-card__desc">Bis zu 70 % Zuschuss vom BAFA für den Einbau einer Wärmepumpe — kombinierbar mit weiteren Programmen.</p>
-              <div class="program-card__footer">
-                <span class="btn btn--premium-sm w-full">Details ansehen</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 2 -->
-          <a href="photovoltaik-foerderung.html" class="program-card premium-card" data-land="Bayern">
-            <div class="program-card__img-wrapper">
-              <img src="PhotoVoltaikBayern.png" alt="Photovoltaik Förderung Bayern" class="program-card__img">
-              <div class="program-card__img-overlay"></div>
-            </div>
-            <div class="program-card__content">
-              <div class="program-card__badges">
-                <span class="badge badge--energie">Photovoltaik</span>
-                <span class="program-card__amount-badge">0 % MwSt.</span>
-              </div>
-              <h3 class="program-card__name">Photovoltaik Förderung Bayern</h3>
-              <p class="program-card__desc">Einspeisevergütung, Steuerbefreiung und günstige KfW-Finanzierung für Ihre Anlage in Bayern.</p>
-              <div class="program-card__footer">
-                <span class="btn btn--premium-sm w-full">Details ansehen</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 3 -->
-          <a href="gruenderzuschuss.html" class="program-card premium-card" data-land="Alle">
-            <div class="program-card__img-wrapper">
-              <img src="GründerförderungCard.png" alt="Gründerzuschuss" class="program-card__img">
-              <div class="program-card__img-overlay"></div>
-            </div>
-            <div class="program-card__content">
-              <div class="program-card__badges">
-                <span class="badge badge--business">Gründung</span>
-                <span class="program-card__amount-badge">15 Monate</span>
-              </div>
-              <h3 class="program-card__name">Gründerzuschuss 2026</h3>
-              <p class="program-card__desc">Finanzielle Unterstützung der Bundesagentur für Arbeit für Gründer aus der Arbeitslosigkeit.</p>
-              <div class="program-card__footer">
-                <span class="btn btn--premium-sm w-full">Details ansehen</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 4 -->
-          <a href="kfw-foerderung.html" class="program-card premium-card" data-land="Baden-Württemberg">
-            <div class="program-card__img-wrapper">
-              <img src="BadenWürttembergCard.png" alt="KfW & L-Bank Kredite" class="program-card__img">
-              <div class="program-card__img-overlay"></div>
-            </div>
-            <div class="program-card__content">
-              <div class="program-card__badges">
-                <span class="badge badge--kfw">Kredite</span>
-                <span class="program-card__amount-badge">L-Bank Plus</span>
-              </div>
-              <h3 class="program-card__name">KfW & L-Bank Kredite</h3>
-              <p class="program-card__desc">Spezielle Ergänzungskredite für Energieeffizienzhäuser in BW mit extrem günstigen Zinsen.</p>
-              <div class="program-card__footer">
-                <span class="btn btn--premium-sm w-full">Details ansehen</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 5 -->
-          <a href="familienfoerderung.html" class="program-card premium-card" data-land="Nordrhein-Westfalen">
-            <div class="program-card__img-wrapper">
-              <img src="FamilieCard.png" alt="Baukindergeld NRW" class="program-card__img">
-              <div class="program-card__img-overlay"></div>
-            </div>
-            <div class="program-card__content">
-              <div class="program-card__badges">
-                <span class="badge badge--familie">Familie</span>
-                <span class="program-card__amount-badge">10.000  </span>
-              </div>
-              <h3 class="program-card__name">Baukindergeld NRW</h3>
-              <p class="program-card__desc">Zuschuss vom Land NRW für den Ersterwerb einer selbstgenutzten Immobilie durch Familien.</p>
-              <div class="program-card__footer">
-                <span class="btn btn--premium-sm w-full">Details ansehen</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 6 -->
-          <a href="e-auto-foerderung.html" class="program-card premium-card" data-land="Alle">
-            <div class="program-card__img-wrapper">
-              <img src="MobilitätCard.png" alt="E-Auto Förderung" class="program-card__img">
-              <div class="program-card__img-overlay"></div>
-            </div>
-            <div class="program-card__content">
-              <div class="program-card__badges">
-                <span class="badge badge--mobil">Mobilität</span>
-                <span class="program-card__amount-badge">0,25 % Steuer</span>
-              </div>
-              <h3 class="program-card__name">E-Auto Förderung 2026</h3>
-              <p class="program-card__desc">Steuervorteile, Kfz-Steuerbefreiung und Länderprogramme für Elektrofahrzeuge im Überblick.</p>
-              <div class="program-card__footer">
-                <span class="btn btn--premium-sm w-full">Details ansehen</span>
-              </div>
-            </div>
-          </a>
-
-        </div>
+      
+      <div class="text-center mt-8">
+        <button id="show-more-progs" class="btn btn--outline">Weitere Programme anzeigen</button>
       </div>
     </div>
   </section>
 
   <!-- ------------------ BUNDESLÄNDER ------------------ -->
-  <section class="hp-sec hp-sec--alt">
+  <section class="hp-sec" id="bundeslaender">
     <div class="hp-sec__inner">
       <div class="hp-sec__head hp-sec__head--c">
-        <span class="hp-sec__eyebrow">Regional</span>
+        <span class="hp-sec__eyebrow">Regionale Förderung</span>
         <h2 class="hp-sec__title">Förderprogramme der Bundesländer</h2>
-        <p class="hp-sec__sub">Jedes Bundesland bietet eigene Förderprogramme an, die sich oft mit Bundesmitteln
-          kombinieren lassen.</p>
+        <p class="hp-sec__sub">Jedes Bundesland bietet eigene Zuschüsse — finden Sie die Programme für Ihren Wohnort.</p>
       </div>
 
-      <div class="hp-states">
-        <!-- Baden-Württemberg -->
-        <a href="foerderungen.html?land=Baden-Württemberg" class="hp-state">
-          <img src="BadenWürttembergCard.png" alt="Baden-Württemberg" class="hp-state__img">
+      <div class="hp-states" id="states-grid">
+        <a href="foerderungen.html?q=Bayern" class="hp-state">
+          <img src="images/bayerncard.png" alt="Bayern" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Baden-Württemberg</span>
+          <h3 class="hp-state__title">Bayern</h3>
         </a>
-
-        <!-- Bayern -->
-        <a href="foerderungen.html?land=Bayern" class="hp-state">
-          <img src="BayernCard.png" alt="Bayern" class="hp-state__img">
+        <a href="foerderungen.html?q=NRW" class="hp-state">
+          <img src="images/nordrheinwestphalfen.png" alt="Nordrhein-Westfalen" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Bayern</span>
+          <h3 class="hp-state__title">NRW</h3>
         </a>
-
-        <!-- Berlin -->
-        <a href="foerderungen.html?land=Berlin" class="hp-state">
-          <img src="BerlinCard.png" alt="Berlin" class="hp-state__img">
+        <a href="foerderungen.html?q=Baden-Württemberg" class="hp-state">
+          <img src="images/badenwürttembergcard.png" alt="Baden-Württemberg" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Berlin</span>
+          <h3 class="hp-state__title">Baden-Württemberg</h3>
         </a>
-
-        <!-- Brandenburg -->
-        <a href="foerderungen.html?land=Brandenburg" class="hp-state">
-          <img src="BrandeburgCard.png" alt="Brandenburg" class="hp-state__img">
+        <a href="foerderungen.html?q=Niedersachsen" class="hp-state">
+          <img src="images/niedersachsencard.png" alt="Niedersachsen" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Brandenburg</span>
+          <h3 class="hp-state__title">Niedersachsen</h3>
         </a>
-
-        <!-- Bremen -->
-        <a href="foerderungen.html?land=Bremen" class="hp-state hp-state--extra">
-          <img src="BremenCard.png" alt="Bremen" class="hp-state__img">
+        
+        <!-- Extra States (Hidden on Desktop by default) -->
+        <a href="foerderungen.html?q=Hessen" class="hp-state hp-state--extra">
+          <img src="images/hessencard.png" alt="Hessen" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Bremen</span>
+          <h3 class="hp-state__title">Hessen</h3>
         </a>
-
-        <!-- Hamburg -->
-        <a href="foerderungen.html?land=Hamburg" class="hp-state hp-state--extra">
-          <img src="HamburgCard.png" alt="Hamburg" class="hp-state__img">
+        <a href="foerderungen.html?q=Sachsen" class="hp-state hp-state--extra">
+          <img src="images/sachsencard.png" alt="Sachsen" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Hamburg</span>
+          <h3 class="hp-state__title">Sachsen</h3>
         </a>
-
-        <!-- Hessen -->
-        <a href="foerderungen.html?land=Hessen" class="hp-state hp-state--extra">
-          <img src="HessenCard.png" alt="Hessen" class="hp-state__img">
+        <a href="foerderungen.html?q=Rheinland-Pfalz" class="hp-state hp-state--extra">
+          <img src="images/rheinlandpfalzcard.png" alt="Rheinland-Pfalz" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Hessen</span>
+          <h3 class="hp-state__title">Rheinland-Pfalz</h3>
         </a>
-
-        <!-- Mecklenburg-Vorpommern -->
-        <a href="foerderungen.html?land=Mecklenburg-Vorpommern" class="hp-state hp-state--extra">
-          <img src="MecklenBurgVorprommernCard.png" alt="Mecklenburg-Vorpommern" class="hp-state__img">
+        <a href="foerderungen.html?q=Berlin" class="hp-state hp-state--extra">
+          <img src="images/berlincard.png" alt="Berlin" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Mecklenburg-Vorpommern</span>
+          <h3 class="hp-state__title">Berlin</h3>
         </a>
-
-        <!-- Niedersachsen -->
-        <a href="foerderungen.html?land=Niedersachsen" class="hp-state hp-state--extra">
-          <img src="NiedersachsenCard.png" alt="Niedersachsen" class="hp-state__img">
+        <a href="foerderungen.html?q=Schleswig-Holstein" class="hp-state hp-state--extra">
+          <img src="images/schlesweigholstein.png" alt="Schleswig-Holstein" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Niedersachsen</span>
+          <h3 class="hp-state__title">Schleswig-Holstein</h3>
         </a>
-
-        <!-- Nordrhein-Westfalen -->
-        <a href="foerderungen.html?land=Nordrhein-Westfalen" class="hp-state hp-state--extra">
-          <img src="NordRheinWESTPHALFEN.png" alt="Nordrhein-Westfalen" class="hp-state__img">
+        <a href="foerderungen.html?q=Brandenburg" class="hp-state hp-state--extra">
+          <img src="images/brandeburgcard.png" alt="Brandenburg" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Nordrhein-Westfalen</span>
+          <h3 class="hp-state__title">Brandenburg</h3>
         </a>
-
-        <!-- Rheinland-Pfalz -->
-        <a href="foerderungen.html?land=Rheinland-Pfalz" class="hp-state hp-state--extra">
-          <img src="RheinlandpfalzCard.png" alt="Rheinland-Pfalz" class="hp-state__img">
+        <a href="foerderungen.html?q=Sachsen-Anhalt" class="hp-state hp-state--extra">
+          <img src="images/sachsenanhalt.png" alt="Sachsen-Anhalt" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Rheinland-Pfalz</span>
+          <h3 class="hp-state__title">Sachsen-Anhalt</h3>
         </a>
-
-        <!-- Saarland -->
-        <a href="foerderungen.html?land=Saarland" class="hp-state hp-state--extra">
-          <img src="SaarlandCard.png" alt="Saarland" class="hp-state__img">
+        <a href="foerderungen.html?q=Thüringen" class="hp-state hp-state--extra">
+          <img src="images/thüringencard.png" alt="Thüringen" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Saarland</span>
+          <h3 class="hp-state__title">Thüringen</h3>
         </a>
-
-        <!-- Sachsen -->
-        <a href="foerderungen.html?land=Sachsen" class="hp-state hp-state--extra">
-          <img src="SachsenCard.png" alt="Sachsen" class="hp-state__img">
+        <a href="foerderungen.html?q=Hamburg" class="hp-state hp-state--extra">
+          <img src="images/hamburgcard.png" alt="Hamburg" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Sachsen</span>
+          <h3 class="hp-state__title">Hamburg</h3>
         </a>
-
-        <!-- Sachsen-Anhalt -->
-        <a href="foerderungen.html?land=Sachsen-Anhalt" class="hp-state hp-state--extra">
-          <img src="SachsenAnhalt.png" alt="Sachsen-Anhalt" class="hp-state__img">
+        <a href="foerderungen.html?q=Mecklenburg-Vorpommern" class="hp-state hp-state--extra">
+          <img src="images/mecklenburgvorprommerncard.png" alt="Mecklenburg-Vorpommern" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Sachsen-Anhalt</span>
+          <h3 class="hp-state__title">Mecklenburg-Vorpommern</h3>
         </a>
-
-        <!-- Schleswig-Holstein -->
-        <a href="foerderungen.html?land=Schleswig-Holstein" class="hp-state hp-state--extra">
-          <img src="SchlesweigHolstein.png" alt="Schleswig-Holstein" class="hp-state__img">
+        <a href="foerderungen.html?q=Saarland" class="hp-state hp-state--extra">
+          <img src="images/saarlandcard.png" alt="Saarland" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Schleswig-Holstein</span>
+          <h3 class="hp-state__title">Saarland</h3>
         </a>
-
-        <!-- Thüringen -->
-        <a href="foerderungen.html?land=Thüringen" class="hp-state hp-state--extra">
-          <img src="ThüringenCard.png" alt="Thüringen" class="hp-state__img">
+        <a href="foerderungen.html?q=Bremen" class="hp-state hp-state--extra">
+          <img src="images/bremencard.png" alt="Bremen" class="hp-state__img">
           <div class="hp-state__overlay"></div>
-          <span class="hp-state__title">Thüringen</span>
+          <h3 class="hp-state__title">Bremen</h3>
         </a>
       </div>
-
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <button id="show-more-states" class="btn btn--outline">Mehr anzeigen</button>
+      
+      <div class="text-center mt-8">
+        <button id="show-more-states" class="btn btn--outline">Alle Bundesländer anzeigen</button>
       </div>
     </div>
   </section>
 
   <!-- ------------------ WIE FUNKTIONIERT ES ------------------ -->
-  <section class="hp-sec hp-sec--alt">
+  <section class="hp-sec">
     <div class="hp-sec__inner">
       <div class="hp-sec__head hp-sec__head--c">
         <span class="hp-sec__eyebrow">So funktioniert's</span>
@@ -456,7 +523,7 @@
         <h2 class="hp-cta__title">Keine Förderung verpassen</h2>
         <p class="hp-cta__sub">Entdecken Sie alle aktuellen Förderprogramme aus Bund, Ländern und EU — kostenlos und
           verständlich erklärt.</p>
-        <a href="foerderungen.html" class="hp-cta__btn">Alle Programme ansehen ?</a>
+        <a href="foerderungen.html" class="hp-cta__btn">Alle Programme ansehen</a>
       </div>
     </div>
   </section>
@@ -542,7 +609,7 @@
   <script src="footer.js"></script>
 
   <script>
-    // Navbar burger
+    // Navbar burger handled by script below, but just in case
     const hpBurger = document.getElementById('hp-burger');
     const hpMobile = document.getElementById('hp-mobile-nav');
     hpBurger?.addEventListener('click', () => {
@@ -580,30 +647,71 @@
 
     // States Show More
     const statesBtn = document.getElementById('show-more-states');
-    const statesGrid = document.querySelector('.hp-states');
+    const statesGrid = document.getElementById('states-grid');
     statesBtn?.addEventListener('click', () => {
       statesGrid.classList.toggle('show-all');
       if (statesGrid.classList.contains('show-all')) {
         statesBtn.textContent = 'Weniger anzeigen';
       } else {
-        statesBtn.textContent = 'Mehr anzeigen';
-        // Scroll back to top of states section
-        const statesSec = statesGrid.closest('.hp-sec');
+        statesBtn.textContent = 'Alle Bundesländer anzeigen';
+        const statesSec = document.getElementById('bundeslaender');
         if (statesSec) statesSec.scrollIntoView({ behavior: 'smooth' });
       }
     });
 
+    // Progs Show More
+    const progsBtn = document.getElementById('show-more-progs');
+    const progsGrid = document.getElementById('progs-grid');
+    progsBtn?.addEventListener('click', () => {
+      progsGrid.classList.toggle('show-all');
+      if (progsGrid.classList.contains('show-all')) {
+        progsBtn.textContent = 'Weniger anzeigen';
+      } else {
+        progsBtn.textContent = 'Weitere Programme anzeigen';
+        const progsSec = progsGrid.closest('.hp-sec');
+        if (progsSec) progsSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
 
-    // Map logic removed
+    // Cats Show More
+    const catsBtn = document.getElementById('show-more-cats');
+    const catsGrid = document.getElementById('cats-grid');
+    catsBtn?.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        // On mobile, toggle horizontal scrolling mode
+        catsGrid.classList.toggle('is-scrolling');
+        if (catsGrid.classList.contains('is-scrolling')) {
+          catsBtn.textContent = 'Standard-Ansicht';
+          // Scroll to start of the row
+          catsGrid.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          catsBtn.textContent = 'Weitere Kategorien anzeigen (Horizontal)';
+        }
+      } else {
+        // On desktop, toggle vertical expansion
+        catsGrid.classList.toggle('show-all');
+        if (catsGrid.classList.contains('show-all')) {
+          catsBtn.textContent = 'Weniger anzeigen';
+        } else {
+          catsBtn.textContent = 'Weitere Kategorien anzeigen';
+          const catsSec = catsGrid.closest('.hp-sec');
+          if (catsSec) catsSec.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
 
     // Scroll animations
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; obs.unobserve(e.target); }
+        if (e.isIntersecting) { 
+          e.target.style.opacity = '1'; 
+          e.target.style.transform = 'translateY(0)'; 
+          obs.unobserve(e.target); 
+        }
       });
     }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
 
-    document.querySelectorAll('.hp-cat,.hp-prog,.hp-step').forEach(el => {
+    document.querySelectorAll('.hp-cat,.hp-prog,.hp-step,.hp-state').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity .5s ease, transform .5s ease';
@@ -611,6 +719,7 @@
     });
   </script>
   <script src="main.js"></script>
+  <script src="inject-tags.js"></script>
 </body>
 
 </html>

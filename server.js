@@ -11,10 +11,18 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors({
     origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl) or local dev
-        if (!origin || /localhost|127\.0\.0\.1/.test(origin)) {
+        // Allow requests with no origin (like mobile apps or curl) or local dev/live domain
+        const allowedOrigins = [
+            'http://localhost:3000',
+            'http://localhost:5000',
+            'http://127.0.0.1:3000',
+            'https://www.foerdercheckplus.de',
+            'https://foerdercheckplus.de'
+        ];
+        if (!origin || allowedOrigins.some(o => origin.startsWith(o))) {
             callback(null, true);
         } else {
+            console.error(`CORS blocked for origin: ${origin}`);
             callback(new Error('Not allowed by CORS'));
         }
     },

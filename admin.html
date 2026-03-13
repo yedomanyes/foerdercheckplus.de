@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Admin | FoerderCheckPlus</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -134,6 +134,31 @@
             .form-grid { grid-template-columns: 1fr; }
         }
     </style>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N4VE8HX6XX');
+    </script>
+    <!-- Dark Mode Init (prevents flash) -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+        else { document.documentElement.removeAttribute('data-theme'); }
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4VE8HX6XX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N4VE8HX6XX');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2068043467304653"
+         crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -143,7 +168,6 @@
     <div class="sidebar__nav">
         <button class="sidebar__link active" onclick="showView('dashboard')"><span class="sidebar__icon">📊</span> Dashboard</button>
         <button class="sidebar__link" onclick="showView('programs')"><span class="sidebar__icon">📚</span> Programme</button>
-        <button class="sidebar__link" onclick="showView('new-program')"><span class="sidebar__icon">✏️</span> Neuer Beitrag</button>
         <button class="sidebar__link" onclick="showView('contacts')"><span class="sidebar__icon">✉️</span> Kontaktanfragen <span id="badgeNew" style="background:#ef4444;color:#fff;padding:1px 7px;border-radius:999px;font-size:0.7rem;margin-left:auto;display:none;"></span></button>
         <button class="sidebar__link" onclick="showView('newsletter')"><span class="sidebar__icon">📩</span> Newsletter</button>
         <button class="sidebar__link" onclick="showView('settings')"><span class="sidebar__icon">⚙️</span> Einstellungen</button>
@@ -186,7 +210,6 @@
         <div class="view" id="view-programs">
             <div class="section-header">
                 <h1 class="section-title">Programme</h1>
-                <button class="btn btn-primary" onclick="showView('new-program')">+ Neuer Beitrag</button>
             </div>
             <div class="filter-row">
                 <input type="text" id="pgSearch" class="filter-input" placeholder="Titel suchen...">
@@ -201,78 +224,8 @@
             </div>
         </div>
 
-        <!-- ========== NEW / EDIT PROGRAM ========== -->
-        <div class="view" id="view-new-program">
-            <div class="section-header">
-                <h1 class="section-title" id="editorTitle">Neuer Beitrag</h1>
-                <button class="btn btn-ghost" onclick="showView('programs')">← Zurück</button>
-            </div>
-            <input type="hidden" id="editId">
+        <!-- (Neuer Beitrag wurde entfernt) -->
 
-            <div class="form-card">
-                <div class="form-card-title">Grunddaten</div>
-                <div class="form-grid">
-                    <div class="form-group form-full">
-                        <label class="form-label">Titel *</label>
-                        <input type="text" id="f-title" class="form-control" placeholder="Titel des Förderprogramms" oninput="genSlug()">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Slug / URL</label>
-                        <input type="text" id="f-slug" class="form-control" placeholder="automatisch-generiert">
-                        <span class="form-hint">Wird automatisch aus dem Titel generiert</span>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Förderungshöhe / Badge</label>
-                        <input type="text" id="f-funding" class="form-control" placeholder="z.B. Bis zu 70 % €">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Kategorie</label>
-                        <select id="f-cat" class="form-control">
-                            <option value="">— Keine —</option>
-                            <option value="energie">Energie & Haus</option>
-                            <option value="business">Gründen & Business</option>
-                            <option value="mobil">Mobilität</option>
-                            <option value="familie">Familie & Bildung</option>
-                            <option value="wohnen">Wohnen & Kredit</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Bundesland / Region</label>
-                        <input type="text" id="f-region" class="form-control" placeholder="z.B. Bayern, Bundesweit">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Status</label>
-                        <select id="f-status" class="form-control">
-                            <option value="Entwurf">Entwurf</option>
-                            <option value="Veröffentlicht">Veröffentlicht</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-card">
-                <div class="form-card-title">Inhalt</div>
-                <div class="form-group" style="margin-bottom:16px;">
-                    <label class="form-label">Kurzbeschreibung</label>
-                    <textarea id="f-short" class="form-control" placeholder="Kurze Beschreibung für die Übersicht / Cards..." style="min-height:80px;"></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Vollständiger Inhalt</label>
-                    <textarea id="f-content" class="form-control" placeholder="Vollständiger Text des Beitrags. Du kannst hier ausführlich alles beschreiben. Nutze Absätze für Struktur." style="min-height:260px;"></textarea>
-                </div>
-            </div>
-
-            <div class="form-card">
-                <div class="form-card-title">🔗 Buttons / Affiliate-Links</div>
-                <div id="affBtns"></div>
-                <button class="btn btn-ghost" onclick="addAffBtn()">+ Button hinzufügen</button>
-            </div>
-
-            <div style="display:flex;gap:12px;justify-content:flex-end;">
-                <button class="btn btn-ghost btn-wide" onclick="showView('programs')">Abbrechen</button>
-                <button class="btn btn-primary btn-wide" onclick="saveProgram()">💾 Beitrag speichern</button>
-            </div>
-        </div>
 
         <!-- ========== CONTACTS ========== -->
         <div class="view" id="view-contacts">
@@ -373,19 +326,29 @@
 <script>
 let programs = [], contacts = [], currentContactId = null, pendingDeleteFn = null;
 
+// More robust dev detection: if on any common Live Server port, point to :3000
+const isDev = ['5500', '5501', '5502', '3001'].includes(window.location.port);
+const baseUrl = isDev ? `${window.location.protocol}//${window.location.hostname}:3000` : '';
+
 // ——————————————————————————————
 // NAVIGATION
 // ——————————————————————————————
-const viewLabels = { dashboard:'Dashboard', programs:'Programme', 'new-program':'Neuer Beitrag', contacts:'Kontaktanfragen', newsletter:'Newsletter', settings:'Einstellungen' };
+const viewLabels = { dashboard:'Dashboard', programs:'Programme', contacts:'Kontaktanfragen', newsletter:'Newsletter', settings:'Einstellungen' };
 
 function showView(v) {
+    if (!v) v = 'dashboard';
+    localStorage.setItem('admin_last_view', v);
     document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.sidebar__link').forEach(el => el.classList.remove('active'));
-    document.getElementById('view-' + v).classList.add('active');
-    const viewsList = ['dashboard','programs','new-program','contacts','newsletter','settings'];
+    
+    const viewEl = document.getElementById('view-' + v);
+    if (viewEl) viewEl.classList.add('active');
+    
+    const viewsList = ['dashboard','programs','contacts','newsletter','settings'];
     const index = viewsList.indexOf(v);
     if (index !== -1) {
-        document.querySelectorAll('.sidebar__link')[index].classList.add('active');
+        const link = document.querySelectorAll('.sidebar__link')[index];
+        if (link) link.classList.add('active');
     }
     document.getElementById('topbarTitle').textContent = viewLabels[v] || '';
     if (v === 'dashboard') loadStats();
@@ -436,7 +399,7 @@ function statusBadge(s) {
 // ——————————————————————————————
 async function loadStats() {
     try {
-        const res = await fetch('/api/admin/stats');
+        const res = await fetch(`${baseUrl}/api/admin/stats`, { credentials: 'include' });
         if (!res.ok) return;
         const d = await res.json();
         document.getElementById('s-total').textContent = d.totalPrograms;
@@ -460,7 +423,7 @@ async function loadStats() {
 // ——————————————————————————————
 async function loadPrograms() {
     try {
-        const res = await fetch('/api/admin/programs');
+        const res = await fetch(`${baseUrl}/api/admin/programs`, { credentials: 'include' });
         if (!res.ok) { if(res.status===401) location.href='/anmelden.html'; return; }
         programs = await res.json();
         renderPrograms();
@@ -500,81 +463,9 @@ document.getElementById('pgStatusFilter').addEventListener('change', renderProgr
 
 function confirmDelete(id, title) {
     openConfirm(`„${title}" wirklich löschen?`, async () => {
-        const res = await fetch(`/api/admin/programs/${id}`, { method: 'DELETE' });
+        const res = await fetch(`${baseUrl}/api/admin/programs/${id}`, { method: 'DELETE', credentials: 'include' });
         if (res.ok) { toast('Gelöscht!'); loadPrograms(); } else toast('Fehler!', false);
     });
-}
-
-// ——————————————————————————————
-// EDITOR
-// ——————————————————————————————
-function genSlug() {
-    const title = document.getElementById('f-title').value;
-    document.getElementById('f-slug').value = title.toLowerCase()
-        .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
-        .replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
-}
-
-function resetEditor(prog = null) {
-    document.getElementById('editorTitle').textContent = prog ? 'Beitrag bearbeiten' : 'Neuer Beitrag';
-    document.getElementById('editId').value = prog ? prog.id : '';
-    document.getElementById('f-title').value = prog ? prog.title : '';
-    document.getElementById('f-slug').value = prog ? prog.slug || '' : '';
-    document.getElementById('f-funding').value = prog ? prog.fundingAmount || '' : '';
-    document.getElementById('f-cat').value = prog ? prog.category || '' : '';
-    document.getElementById('f-region').value = prog ? prog.region || '' : '';
-    document.getElementById('f-status').value = prog ? prog.status : 'Entwurf';
-    document.getElementById('f-short').value = prog ? prog.shortDesc || '' : '';
-    document.getElementById('f-content').value = prog ? prog.content || '' : '';
-    const btns = prog ? (prog.buttons || []) : [];
-    document.getElementById('affBtns').innerHTML = '';
-    btns.forEach(b => addAffBtn(b.text, b.url));
-}
-
-function addAffBtn(text = '', url = '') {
-    const wrap = document.getElementById('affBtns');
-    const div = document.createElement('div');
-    div.className = 'aff-btn-row';
-    div.innerHTML = `
-        <input type="text" placeholder="Button-Text, z.B. Jetzt beantragen" value="${text}" class="btn-text">
-        <input type="url" placeholder="https://..." value="${url}" class="btn-url">
-        <button class="aff-btn-remove" onclick="this.parentElement.remove()" title="Entfernen">×</button>
-    `;
-    wrap.appendChild(div);
-}
-
-function getButtons() {
-    return [...document.querySelectorAll('#affBtns .aff-btn-row')].map(row => ({
-        text: row.querySelector('.btn-text').value.trim(),
-        url: row.querySelector('.btn-url').value.trim()
-    })).filter(b => b.text && b.url);
-}
-
-async function saveProgram() {
-    const id = document.getElementById('editId').value;
-    const payload = {
-        title: document.getElementById('f-title').value.trim(),
-        slug: document.getElementById('f-slug').value.trim(),
-        fundingAmount: document.getElementById('f-funding').value.trim(),
-        category: document.getElementById('f-cat').value,
-        region: document.getElementById('f-region').value.trim(),
-        status: document.getElementById('f-status').value,
-        shortDesc: document.getElementById('f-short').value.trim(),
-        content: document.getElementById('f-content').value.trim(),
-        buttons: getButtons()
-    };
-    if (!payload.title) { toast('Titel ist Pflichtfeld!', false); return; }
-    const method = id ? 'PUT' : 'POST';
-    const url = id ? `/api/admin/programs/${id}` : '/api/admin/programs';
-    const res = await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-    if (res.ok) { toast('Gespeichert!'); showView('programs'); } else toast('Fehler beim Speichern.', false);
-}
-
-async function editProgram(id) {
-    const prog = programs.find(p => p.id === id);
-    if (!prog) return;
-    resetEditor(prog);
-    showView('new-program');
 }
 
 // ——————————————————————————————
@@ -582,7 +473,7 @@ async function editProgram(id) {
 // ——————————————————————————————
 async function loadContacts() {
     try {
-        const res = await fetch('/api/admin/contacts');
+        const res = await fetch(`${baseUrl}/api/admin/contacts`, { credentials: 'include' });
         if (!res.ok) { if(res.status===401) location.href='/anmelden.html'; return; }
         contacts = await res.json();
         renderContacts();
@@ -638,7 +529,7 @@ function openContact(id) {
 async function updateContactStatus() {
     if (!currentContactId) return;
     const status = document.getElementById('cm-status').value;
-    await fetch(`/api/admin/contacts/${currentContactId}/status`, { method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify({status}) });
+    await fetch(`${baseUrl}/api/admin/contacts/${currentContactId}/status`, { method:'PUT', headers:{'Content-Type':'application/json'}, credentials: 'include', body: JSON.stringify({status}) });
     loadContacts();
     document.getElementById('cm-badge').innerHTML = statusBadge(status);
 }
@@ -646,7 +537,7 @@ async function updateContactStatus() {
 async function deleteContactFromModal() {
     closeModal('contactModal');
     openConfirm('Diese Anfrage wirklich löschen?', async () => {
-        await fetch(`/api/admin/contacts/${currentContactId}`, { method:'DELETE' });
+        await fetch(`${baseUrl}/api/admin/contacts/${currentContactId}`, { method:'DELETE', credentials: 'include' });
         toast('Anfrage gelöscht.');
         loadContacts();
     });
@@ -658,7 +549,7 @@ async function deleteContactFromModal() {
 let subscribers = [];
 async function loadNewsletter() {
     try {
-        const res = await fetch('/api/admin/newsletter');
+        const res = await fetch(`${baseUrl}/api/admin/newsletter`, { credentials: 'include' });
         if (!res.ok) { if(res.status===401) location.href='/anmelden.html'; return; }
         subscribers = await res.json();
         renderNewsletter();
@@ -684,7 +575,7 @@ document.getElementById('nlSearch').addEventListener('input', renderNewsletter);
 
 async function deleteSubscriber(id, email) {
     openConfirm(`„${email}" aus dem Newsletter entfernen?`, async () => {
-        const res = await fetch(`/api/admin/newsletter/${id}`, { method: 'DELETE' });
+        const res = await fetch(`${baseUrl}/api/admin/newsletter/${id}`, { method: 'DELETE', credentials: 'include' });
         if (res.ok) { toast('Entfernt!'); loadNewsletter(); } else toast('Fehler!', false);
     });
 }
@@ -693,14 +584,15 @@ async function deleteSubscriber(id, email) {
 // LOGOUT
 // ——————————————————————————————
 async function logout() {
-    await fetch('/api/logout', { method:'POST' });
+    await fetch(`${baseUrl}/api/logout`, { method:'POST', credentials: 'include' });
     location.href = '/anmelden.html';
 }
 
 // ——————————————————————————————
 // INIT
 // ——————————————————————————————
-loadStats();
+const lastView = localStorage.getItem('admin_last_view') || 'dashboard';
+showView(lastView);
 </script>
 </body>
 </html>

@@ -101,20 +101,19 @@ function initNewsletter() {
         });
     }
 
-    // Popup timer (every 3 minutes)
-    // 3 minutes = 180,000 ms
+    /* Popup timer disabled as per user request
     setInterval(() => {
         if (!localStorage.getItem('foerdercheck_subscribed') && !document.getElementById('newsletter-popup')) {
             showNewsletterPopup();
         }
     }, 180000);
 
-    // Initial check after 30 seconds
     setTimeout(() => {
         if (!localStorage.getItem('foerdercheck_subscribed') && !document.getElementById('newsletter-popup')) {
             showNewsletterPopup();
         }
     }, 30000);
+    */
 }
 
 async function subscribeEmail(email, formElement) {
@@ -138,10 +137,12 @@ async function subscribeEmail(email, formElement) {
             alert('Vielen Dank! Sie wurden erfolgreich angemeldet.');
             if (formElement.tagName === 'FORM') formElement.reset();
         } else {
-            alert(data.error || 'Fehler bei der Anmeldung.');
+            const errorText = data.error || 'Fehler bei der Anmeldung.';
+            alert(`Hinweis: ${errorText}`);
         }
     } catch (err) {
-        alert('Serverfehler. Bitte stellen Sie sicher, dass der Server läuft (node server.js).');
+        console.error('Newsletter Signup Error:', err);
+        alert('Serverfehler: Verbindung zum Server fehlgeschlagen. Bitte versuchen Sie es später erneut.');
     }
 }
 
