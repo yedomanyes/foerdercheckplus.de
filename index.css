@@ -3498,9 +3498,11 @@ button:focus-visible {
   }
 
   /* Pause animation on interaction */
-  .hp-progs:active .hp-prog--hint,
-  .hp-progs:hover .hp-prog--hint {
-    animation-play-state: paused !important;
+  /* Hide "Show more" buttons on mobile as they are redundant with scrolling */
+  #show-more-cats,
+  #show-more-progs,
+  #show-more-states {
+    display: none !important;
   }
 }
 
