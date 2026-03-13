@@ -3371,8 +3371,7 @@ button:focus-visible {
     padding: 56px 1.25rem
   }
   
-  /* Shared scroll containers for states and progs */
-  .hp-states,
+  /* Shared scroll containers for progs (leaving states out as they should be grid) */
   .hp-progs {
     display: flex !important;
     overflow-x: auto !important;
@@ -3386,11 +3385,11 @@ button:focus-visible {
     scroll-padding-left: 1.5rem !important;
   }
 
-  .hp-states::-webkit-scrollbar,
   .hp-progs::-webkit-scrollbar {
     display: none !important;
   }
 
+<<<<<<< HEAD
 
   .hp-state {
     flex: 0 0 calc(80vw - 2rem) !important;
@@ -3399,6 +3398,23 @@ button:focus-visible {
     scroll-snap-align: start !important;
     display: flex !important;
     border-radius: 20px !important;
+=======
+  .hp-states {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    overflow-x: visible !important;
+  }
+
+  .hp-state {
+    flex: none !important;
+    width: 100% !important;
+    aspect-ratio: 768 / 1024 !important;
+    display: flex !important;
+    border-radius: 16px !important;
+>>>>>>> 0da4670ee6741d8c851cb92bd540e68c0c4e63f8
   }
 
   .hp-prog {
