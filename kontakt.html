@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kontakt | FoerderCheckPlus</title>
     <meta name="description" content="Nehmen Sie Kontakt mit FoerderCheckPlus auf.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -94,6 +94,37 @@
             .contact-form-container { padding: 24px; }
         }
     </style>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N4VE8HX6XX');
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N4VE8HX6XX');
+    </script>
+    <!-- Dark Mode Init (prevents flash) -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+        else { document.documentElement.removeAttribute('data-theme'); }
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4VE8HX6XX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N4VE8HX6XX');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2068043467304653"
+         crossorigin="anonymous"></script>
 </head>
 <body>
     <script src="header.js"></script>
@@ -149,11 +180,26 @@
                 <button type="submit" class="btn--explorer w-full" id="submitBtn" style="width: 100%; border-radius: 12px; padding: 16px;">Nachricht senden</button>
             </form>
         </div>
+    <!-- Custom Notification Toast -->
+    <div id="toastNotification" style="position:fixed; bottom:24px; right:24px; background:var(--surface); color:var(--text); padding:16px 24px; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.15); border:1px solid var(--border); display:flex; align-items:center; gap:12px; z-index:10000; transform:translateY(120px); transition:transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-family:'Poppins', sans-serif;">
+        <div style="width:32px; height:32px; background:#ECFDF5; color:#059669; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px;">✓</div>
+        <div>
+            <div style="font-weight:700; font-size:0.95rem;">Gesendet!</div>
+            <div style="font-size:0.85rem; color:var(--text-2);">Danke für deine Nachricht.</div>
+        </div>
     </div>
 
     <script src="footer.js"></script>
     <script src="main.js"></script>
     <script>
+        function showNotification() {
+            const toast = document.getElementById('toastNotification');
+            toast.style.transform = 'translateY(0)';
+            setTimeout(() => {
+                toast.style.transform = 'translateY(120px)';
+            }, 6000); // Show for 6 seconds
+        }
+
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
@@ -174,21 +220,22 @@
             };
 
             try {
-                const res = await fetch('/api/contact', {
+                const isDev = ['5500', '5501', '5502', '3001'].includes(window.location.port);
+                const baseUrl = isDev ? `${window.location.protocol}//${window.location.hostname}:3000` : '';
+                const res = await fetch(`${baseUrl}/api/contact`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
                     body: JSON.stringify(payload)
                 });
                 
-                const data = await res.json();
-                
                 if (res.ok) {
-                    statusMsg.className = 'form-message success';
-                    statusMsg.textContent = 'Vielen Dank. Ihre Nachricht wurde erfolgreich gesendet.';
+                    showNotification();
                     document.getElementById('contactForm').reset();
                 } else {
+                    const data = await res.json();
                     statusMsg.className = 'form-message error';
-                    statusMsg.textContent = data.error || 'Fehler beim Senden. Bitte versuchen Sie es später erneut.';
+                    statusMsg.textContent = data.error || 'Fehler beim Senden.';
                 }
             } catch (err) {
                 statusMsg.className = 'form-message error';

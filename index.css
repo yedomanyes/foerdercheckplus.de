@@ -1052,6 +1052,8 @@ h4 {
   color: var(--text-2);
   line-height: 1.6;
   flex: 1;
+  overflow-wrap: break-word; /* Fix for long words on mobile */
+  word-wrap: break-word;
 }
 
 .program-card__footer {

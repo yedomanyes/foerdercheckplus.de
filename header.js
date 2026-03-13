@@ -3,13 +3,19 @@
   document.write(`
 <script>
   (function() {
-    const t = localStorage.getItem("theme");
-    // Default to light mode on first load (ignore prefers-color-scheme)
-    if (t === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
+    function applyTheme() {
+      const t = localStorage.getItem("theme");
+      if (t === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
     }
+    applyTheme();
+    // Re-apply on storage change (tabs)
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'theme') applyTheme();
+    });
   })();
 </script>
 <style>
@@ -140,12 +146,25 @@
   .mobile-menu.open .mobile-menu__link:nth-child(4) { transition-delay: 0.25s; }
   .mobile-menu.open .mobile-menu__link:nth-child(5) { transition-delay: 0.3s; }
   .mobile-menu.open .mobile-menu__link:nth-child(6) { transition-delay: 0.35s; }
+  .mobile-menu.open .mobile-menu__link:nth-child(7) { transition-delay: 0.4s; }
 
   .mobile-menu__link:hover, .mobile-menu__link.active { 
     background: rgba(59, 130, 246, 0.08); color: #3B82F6; 
   }
   [data-theme="dark"] .mobile-menu__link:hover, [data-theme="dark"] .mobile-menu__link.active { 
     background: rgba(59, 130, 246, 0.15); color: #60A5FA; 
+  }
+
+  /* Accessibility & Readability Fixes */
+  .info-box--tip {
+    background: #EFF6FF !important;
+    color: #1E3A8A !important;
+    border-left: 4px solid #3B82F6 !important;
+  }
+  [data-theme="dark"] .info-box--tip {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #F8FAFC !important;
+    border-left: 4px solid #60A5FA !important;
   }
 
   @media(max-width:980px) {
@@ -170,6 +189,7 @@
             <a href="foerderungen.html?kat=energie" class="site-nav__link">Energie</a>
             <a href="foerderungen.html?kat=business" class="site-nav__link">Gründen</a>
             <a href="foerderungen.html?kat=familie" class="site-nav__link">Familie</a>
+            <a href="guides.html" class="site-nav__link" data-page="guides.html">Guides</a>
         </div>
     </div>
     
@@ -197,6 +217,7 @@
     <a href="foerderungen.html?kat=business" class="mobile-menu__link">Gründung</a>
     <a href="foerderungen.html?kat=mobil" class="mobile-menu__link">Mobilität</a>
     <a href="foerderungen.html?kat=familie" class="mobile-menu__link">Familienhilfe</a>
+    <a href="guides.html" class="mobile-menu__link" data-page="guides.html">Guides</a>
     <div style="margin-top: auto; padding: 20px 0;">
         <a href="foerderungen.html" class="site-nav__cta" style="display: flex; justify-content: center; width: 100%;">Förderung finden</a>
     </div>
@@ -244,6 +265,18 @@
         if (e.target === overlay) toggleMenu();
     });
 
+    // Theme Toggle Functionality
+    const themeBtn = document.getElementById('theme-toggle-nav');
+    themeBtn?.addEventListener('click', () => {
+        const isDark = root.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+            root.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            root.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
 
     // Close menu on resize if screen gets bigger
     window.addEventListener('resize', () => {

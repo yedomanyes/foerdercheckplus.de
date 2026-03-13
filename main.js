@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initHeroSearch();
     initNewsletter();
-    initDarkMode();
 });
 
 /* ── FAQ Accordion ───────────────────────────────────────── */
@@ -87,26 +86,6 @@ function initHeroSearch() {
     }
 }
 
-/* ── Global Dark Mode Toggle ───────────────────────── */
-function initDarkMode() {
-    const root = document.documentElement;
-    
-    // Use delegation on document for all .theme-toggle clicks
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('.theme-toggle');
-        if (btn) {
-            const isDark = root.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                root.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                root.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-    });
-}
-
 /* ── Newsletter System ────────────────────────────── */
 function initNewsletter() {
     const isSubscribed = localStorage.getItem('foerdercheck_subscribed');
@@ -140,9 +119,13 @@ function initNewsletter() {
 
 async function subscribeEmail(email, formElement) {
     try {
-        const res = await fetch('/api/newsletter/subscribe', {
+        // More robust dev detection: if on any common Live Server port, point to :3000
+        const isDev = ['5500', '5501', '5502', '3001'].includes(window.location.port);
+        const baseUrl = isDev ? `${window.location.protocol}//${window.location.hostname}:3000` : '';
+        const res = await fetch(`${baseUrl}/api/newsletter/subscribe`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({ email })
         });
         const data = await res.json();
@@ -158,7 +141,7 @@ async function subscribeEmail(email, formElement) {
             alert(data.error || 'Fehler bei der Anmeldung.');
         }
     } catch (err) {
-        alert('Serverfehler. Bitte später erneut versuchen.');
+        alert('Serverfehler. Bitte stellen Sie sicher, dass der Server läuft (node server.js).');
     }
 }
 
