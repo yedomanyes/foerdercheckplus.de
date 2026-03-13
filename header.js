@@ -48,9 +48,8 @@
   }
 
   .site-nav__logo{
-    font-size:1.1rem;font-weight:900;color:#0F172A;
-    letter-spacing:-.03em;text-decoration:none;
-    transition: color 0.3s;
+    display:flex;align-items:center;gap:10px;
+    text-decoration:none;
   }
   [data-theme="dark"] .site-nav__logo { color: #F8FAFC; }
 
@@ -182,7 +181,9 @@
 <nav class="site-nav">
   <div class="site-nav__wrap">
     <div class="site-nav__left">
-        <a href="/" class="site-nav__logo">FoerdercheckPlus</a>
+        <a href="/" class="site-nav__logo">
+          <img src="förderchecklogo.png" alt="FoerdercheckPlus" style="height:38px; width:auto;">
+        </a>
         <div class="site-nav__links">
             <a href="/" class="site-nav__link" data-page="index.html">Startseite</a>
             <a href="foerderungen.html" class="site-nav__link" data-page="foerderungen.html">Programme</a>

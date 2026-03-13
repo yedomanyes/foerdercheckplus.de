@@ -5,8 +5,8 @@
   <div style="max-width:var(--max-w);margin:0 auto">
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:3rem;margin-bottom:2.5rem">
       <div>
-        <div style="display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.1rem;color:var(--text);margin-bottom:.875rem;letter-spacing:-.02em">
-          FoerdercheckPlus
+        <div style="margin-bottom:1.2rem">
+          <img src="förderchecklogo.png" alt="FoerdercheckPlus" style="height:34px; width:auto;">
         </div>
         <p style="font-size:.9rem;line-height:1.6;color:var(--text-2);max-width:280px">Der moderne, digitale Ratgeber für staatliche Förderprogramme in Deutschland. Aktuell, verständlich, unabhängig.</p>
       </div>
