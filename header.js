@@ -19,6 +19,7 @@
   })();
 </script>
 <script src="https://quge5.com/88/tag.min.js" data-zone="219466" async data-cfasync="false"></script>
+<script>(function(s){s.dataset.zone='10727772',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Poppins',system-ui,sans-serif}
