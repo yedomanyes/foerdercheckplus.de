@@ -77,8 +77,8 @@ html, body {
   --shadow-blue: 0 8px 30px rgba(30, 58, 138, 0.2);
   --header-h: 72px;
   --max-w: 1200px;
-  --t: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  --t-md: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-md: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
