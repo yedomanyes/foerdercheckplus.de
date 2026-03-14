@@ -232,12 +232,22 @@
     (function() {
         const splash = document.getElementById('splash-screen');
         const content = document.getElementById('splash-content');
-        const isDark = localStorage.getItem('theme') === 'dark';
+        const isMobile = window.innerWidth <= 768;
+        const hasShownSplash = sessionStorage.getItem('splash_shown');
         
+        // Only show once per session on mobile
+        if (!isMobile || hasShownSplash) {
+            splash.style.display = 'none';
+            return;
+        }
+
+        const isDark = localStorage.getItem('theme') === 'dark';
         if (isDark) {
             splash.style.background = '#0b1120';
             content.style.color = '#f8fafc';
         }
+
+        sessionStorage.setItem('splash_shown', 'true');
 
         // Show content
         setTimeout(() => {
@@ -250,7 +260,7 @@
             setTimeout(() => {
                 splash.style.opacity = '0';
                 splash.style.visibility = 'hidden';
-            }, 800); // Minimum 800ms for premium feel
+            }, 800); 
         });
     })();
 </script>

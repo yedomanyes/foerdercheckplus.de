@@ -526,8 +526,22 @@
         strong { color: #0f172a; font-weight: 600; }
 
         @media(max-width: 768px) {
-            .saas-hero { padding: 80px 0 60px; }
-            .premium-card { padding: 40px 28px; }
+            .saas-hero { padding: 40px 0 40px; }
+            .saas-hero__h1 { font-size: 2.1rem; margin-bottom: 12px; }
+            .saas-hero__label { font-size: 0.8rem; padding: 6px 14px; }
+            .premium-card { padding: 40px 24px; }
+            .saas-hero__grid { gap: 10px; margin-top: 20px; }
+            .hero-stat { 
+                padding: 12px 8px; 
+                flex: 1;
+                min-width: 0; /* Allow shrinking */
+            }
+            .hero-stat__val { font-size: 1.3rem; margin-bottom: 2px; }
+            .hero-stat__label { 
+                font-size: 0.65rem; 
+                line-height: 1.2;
+                white-space: normal; /* Allow wrapping of labels if needed */
+            }
             .discovery-grid { 
                 display: flex;
                 overflow-x: auto;
@@ -546,9 +560,6 @@
             }
             h2 { font-size: 1.8rem; }
             p { font-size: 1rem; }
-            .hero-stat__val { font-size: 1.5rem; }
-            .hero-stat__label { font-size: 0.75rem; }
-            .hero-stat { padding: 16px; }
             .faq-item__trigger { font-size: 1.05rem !important; padding: 18px 0 !important; }
         }
     </style>
@@ -560,8 +571,8 @@
     <div class="saas-hero">
         <div class="saas-hero__mesh"></div>
         <div class="container saas-hero__content">
-            <div class="saas-hero__label">Einfach · Sicher · Gefördert 2026</div>
             <h1 class="saas-hero__h1">Maximieren Sie Ihre Wärmepumpen-Förderung</h1>
+            <div class="saas-hero__label" style="margin: 0 auto 24px;">Einfach · Sicher · Gefördert 2026</div>
             
             <div class="saas-hero__grid">
                 <div class="hero-stat">
@@ -570,7 +581,7 @@
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat__val">21k €</div>
-                    <div class="hero-stat__label">Max. Auszahlung</div>
+                    <div class="hero-stat__label">Möglicher Cash-Bonus</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat__val">30k €</div>
