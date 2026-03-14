@@ -146,9 +146,10 @@
             background: var(--p-glass);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.4);
-            padding: 24px;
+            padding: 20px;
             border-radius: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-stat__val {
@@ -167,14 +168,32 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 32px;
-            padding: 48px;
+            padding: 40px;
             box-shadow: var(--p-shadow);
             border: 1px solid rgba(255, 255, 255, 0.4);
             margin-bottom: 64px;
-            transition: transform 0.4s ease;
+            transition: transform 0.2s ease;
         }
 
         .premium-card:hover { transform: translateY(-4px); }
+
+        @media(max-width: 640px) {
+            .premium-card {
+                padding: 24px;
+                border-radius: 24px;
+                margin-bottom: 32px;
+            }
+            .saas-hero__grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .hero-stat {
+                padding: 16px;
+            }
+            .hero-stat__val {
+                font-size: 1.75rem;
+            }
+        }
 
         .reveal {
             opacity: 0;
