@@ -521,12 +521,15 @@
             animation: premium-pulse 2s infinite;
         }
 
-        h2 { font-size: 2.4rem; font-weight: 850; letter-spacing: -0.02em; margin-bottom: 28px; color: #0f172a; }
-        p { font-size: 1.15rem; line-height: 1.85; color: #334155; margin-bottom: 28px; font-weight: 400; }
-        strong { color: #0f172a; font-weight: 600; }
+        h2 { font-size: 2.4rem; font-weight: 850; letter-spacing: -0.02em; margin-bottom: 20px; color: #0f172a; }
+        p { font-size: 1.15rem; line-height: 1.85; color: #334155; margin-bottom: 24px; font-weight: 400; }
+        
+        .section { padding-top: 40px; }
 
         @media(max-width: 768px) {
-            .saas-hero { padding: 40px 0 40px; }
+            .section { padding-top: 20px; }
+            .premium-card:first-of-type { margin-top: -10px; }
+            .saas-hero { padding: 40px 0 30px; }
             .saas-hero__h1 { font-size: 2.1rem; margin-bottom: 12px; }
             .saas-hero__label { font-size: 0.8rem; padding: 6px 14px; }
             .premium-card { padding: 40px 24px; }
@@ -779,8 +782,8 @@
 
         // Scroll Reveal Observer
         const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
+            threshold: 0.05,
+            rootMargin: "0px 0px -20px 0px"
         };
 
         const revealObserver = new IntersectionObserver((entries) => {
