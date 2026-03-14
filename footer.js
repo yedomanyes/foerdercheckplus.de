@@ -1,12 +1,11 @@
 // footer.js – FoerdercheckPlus
 (function () {
   const html = `
-<footer style="background:var(--surface-2);color:var(--text);padding:3.5rem 2rem 2rem;font-family:var(--font);border-top:1px solid var(--border);">
   <div style="max-width:var(--max-w);margin:0 auto">
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:3rem;margin-bottom:2.5rem">
       <div>
         <div style="margin-bottom:1.2rem">
-          <img src="förderchecklogo.png" alt="FoerdercheckPlus" style="height:34px; width:auto;">
+          <img src="förderchecklogo.png" alt="FoerdercheckPlus" style="height:34px; width:auto;" loading="lazy">
         </div>
         <p style="font-size:.9rem;line-height:1.6;color:var(--text-2);max-width:280px">Der moderne, digitale Ratgeber für staatliche Förderprogramme in Deutschland. Aktuell, verständlich, unabhängig.</p>
       </div>
@@ -45,10 +44,18 @@
         <a href="datenschutz.html" style="color:var(--text-3);text-decoration:none">Datenschutz</a>
       </div>
     </div>
-  </div>
-</footer>`;
+  </div>`;
 
-  document.write(html);
+  function init() {
+    const footer = document.createElement('footer');
+    footer.style.cssText = "background:var(--surface-2);color:var(--text);padding:3.5rem 2rem 2rem;font-family:var(--font);border-top:1px solid var(--border);";
+    footer.innerHTML = html;
+    document.body.appendChild(footer);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
-
-

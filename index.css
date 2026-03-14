@@ -4352,22 +4352,24 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   padding: 14px 28px;
-  background: #3b82f6;
+  background: #3b82f6 !important;
   color: white !important;
   border-radius: 16px;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
   width: 100%;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
+  font-family: var(--font);
 }
 
 .btn-saas:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
-  background: #2563eb;
+  background: #2563eb !important;
+  border-color: #3b82f6;
   color: white !important;
 }
 

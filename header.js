@@ -1,24 +1,6 @@
-// header.js – FoerdercheckPlus (shared navbar for all detail pages)
+// header.js – FoerdercheckPlus (shared navbar)
 (function () {
-  document.write(`
-<script>
-  (function() {
-    function applyTheme() {
-      const t = localStorage.getItem("theme");
-      if (t === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      } else {
-        document.documentElement.removeAttribute("data-theme");
-      }
-    }
-    applyTheme();
-    // Re-apply on storage change (tabs)
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'theme') applyTheme();
-    });
-  })();
-</script>
-<style>
+  const css = `
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Poppins',system-ui,sans-serif}
   a,button{-webkit-tap-highlight-color:transparent;outline:none}
@@ -109,7 +91,6 @@
   .site-nav__burger.open span:nth-child(2) { opacity: 0; transform: translateX(10px); }
   .site-nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* Modern Mobile Menu Overlay */
   .mobile-menu {
     position: fixed; inset: 0; background: rgba(15, 23, 42, 0.4);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -134,52 +115,16 @@
     transition: all 0.3s; opacity: 0; transform: translateX(20px);
   }
   [data-theme="dark"] .mobile-menu__link { color: #F1F5F9; }
-  
-  .mobile-menu.open .mobile-menu__link { 
-    opacity: 1; transform: translateX(0); 
-  }
-  
-  /* Staggered Link Animations */
-  .mobile-menu.open .mobile-menu__link:nth-child(1) { transition-delay: 0.1s; }
-  .mobile-menu.open .mobile-menu__link:nth-child(2) { transition-delay: 0.15s; }
-  .mobile-menu.open .mobile-menu__link:nth-child(3) { transition-delay: 0.2s; }
-  .mobile-menu.open .mobile-menu__link:nth-child(4) { transition-delay: 0.25s; }
-  .mobile-menu.open .mobile-menu__link:nth-child(5) { transition-delay: 0.3s; }
-  .mobile-menu.open .mobile-menu__link:nth-child(6) { transition-delay: 0.35s; }
-  .mobile-menu.open .mobile-menu__link:nth-child(7) { transition-delay: 0.4s; }
-
-  .mobile-menu__link:hover, .mobile-menu__link.active { 
-    background: rgba(59, 130, 246, 0.08); color: #3B82F6; 
-  }
-  [data-theme="dark"] .mobile-menu__link:hover, [data-theme="dark"] .mobile-menu__link.active { 
-    background: rgba(59, 130, 246, 0.15); color: #60A5FA; 
-  }
-
-  /* Accessibility & Readability Fixes */
-  .info-box--tip {
-    background: #EFF6FF !important;
-    color: #1E3A8A !important;
-    border-left: 4px solid #3B82F6 !important;
-  }
-  [data-theme="dark"] .info-box--tip {
-    background: rgba(59, 130, 246, 0.2) !important;
-    color: #F8FAFC !important;
-    border-left: 4px solid #60A5FA !important;
-  }
+  .mobile-menu.open .mobile-menu__link { opacity: 1; transform: translateX(0); }
 
   @media(max-width:980px) {
     .site-nav__links { display: none; }
     .site-nav__burger { display: flex; }
     .site-nav__cta { display: none; }
-    .site-nav__wrap { padding: 0 1.25rem; }
   }
+  `;
 
-  @media(max-width:480px) {
-    .site-nav__logo { font-size: 1rem; }
-  }
-</style>
-
-<nav class="site-nav">
+  const html = `
   <div class="site-nav__wrap">
     <div class="site-nav__left">
         <a href="/" class="site-nav__logo">
@@ -194,26 +139,17 @@
             <a href="guides.html" class="site-nav__link" data-page="guides.html">Guides</a>
         </div>
     </div>
-    
     <div class="site-nav__right">
       <button class="theme-toggle" id="theme-toggle-nav" aria-label="Theme Toggle">
         <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
         <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
       </button>
-      <a href="foerderungen.html" class="site-nav__cta">
-        Förderung finden
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </a>
-      <button class="site-nav__burger" id="sn-burger-nav" aria-label="Menü">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="foerderungen.html" class="site-nav__cta">Förderung finden</a>
+      <button class="site-nav__burger" id="sn-burger-nav"><span></span><span></span><span></span></button>
     </div>
-  </div>
-    </div>
-  </div>
-</nav>
+  </div>`;
 
-<div class="mobile-menu" id="mobile-menu-overlay">
+  const menuHtml = `
   <div class="mobile-menu__content">
     <a href="/" class="mobile-menu__link" data-page="index.html">Startseite</a>
     <a href="foerderungen.html" class="mobile-menu__link" data-page="foerderungen.html">Alle Programme</a>
@@ -222,56 +158,48 @@
     <a href="foerderungen.html?kat=mobil" class="mobile-menu__link">Mobilität</a>
     <a href="foerderungen.html?kat=familie" class="mobile-menu__link">Familienhilfe</a>
     <a href="guides.html" class="mobile-menu__link" data-page="guides.html">Guides</a>
-    <div style="margin-top: auto; padding: 20px 0;">
-        <a href="foerderungen.html" class="site-nav__cta" style="display: flex; justify-content: center; width: 100%;">Förderung finden</a>
-    </div>
-  </div>
-</div>
-`);
+  </div>`;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const root = document.documentElement;
-    const body = document.body;
+  function init() {
+    const styleEl = document.createElement('style');
+    styleEl.textContent = css;
+    document.head.appendChild(styleEl);
+
+    const nav = document.createElement('nav');
+    nav.className = 'site-nav';
+    nav.innerHTML = html;
+    document.body.prepend(nav);
+
+    const menu = document.createElement('div');
+    menu.className = 'mobile-menu';
+    menu.id = 'mobile-menu-overlay';
+    menu.innerHTML = menuHtml;
+    document.body.prepend(menu);
     
-    // Active link logic
-    const path = location.pathname.split('/').pop() || 'index.html';
-    const params = new URLSearchParams(window.location.search);
-    const kat = params.get('kat');
+    setupListeners();
+  }
 
-    const updateActiveLinks = (links) => {
-        links.forEach(a => {
-            const href = a.getAttribute('href');
-            if (kat && href === `foerderungen.html?kat=${kat}`) {
-                a.classList.add('active');
-            } else if (!kat && a.dataset.page === path) {
-                a.classList.add('active');
-            } else {
-                a.classList.remove('active');
-            }
-        });
-    };
-
-    updateActiveLinks(document.querySelectorAll('.site-nav__link'));
-    updateActiveLinks(document.querySelectorAll('.mobile-menu__link'));
-
-    // Burger & Mobile Menu Toggle
+  function setupListeners() {
     const burger = document.getElementById('sn-burger-nav');
     const overlay = document.getElementById('mobile-menu-overlay');
+    const themeBtn = document.getElementById('theme-toggle-nav');
     
-    const toggleMenu = () => {
-        const isOpen = burger.classList.toggle('open');
+    burger?.addEventListener('click', () => {
+        burger.classList.toggle('open');
         overlay.classList.toggle('open');
-        body.style.overflow = isOpen ? 'hidden' : '';
-    };
-
-    burger?.addEventListener('click', toggleMenu);
-    overlay?.addEventListener('click', (e) => {
-        if (e.target === overlay) toggleMenu();
+        document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
     });
 
-    // Theme Toggle Functionality
-    const themeBtn = document.getElementById('theme-toggle-nav');
+    overlay?.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            burger.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    });
+
     themeBtn?.addEventListener('click', () => {
+        const root = document.documentElement;
         const isDark = root.getAttribute('data-theme') === 'dark';
         if (isDark) {
             root.removeAttribute('data-theme');
@@ -281,14 +209,15 @@
             localStorage.setItem('theme', 'dark');
         }
     });
+  }
 
-    // Close menu on resize if screen gets bigger
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 980 && burger.classList.contains('open')) {
-            toggleMenu();
-        }
-    });
-  });
+  // Pre-apply theme
+  const t = localStorage.getItem("theme");
+  if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
-
-
