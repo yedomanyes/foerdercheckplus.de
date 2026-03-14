@@ -37,13 +37,13 @@ const PROGRAMS = [
     {
         id: 'heizung',
         name: 'Heizung Austausch Förderung 2026',
-        desc: 'Austauschprämie beim Tausch alter Öl- und Gasheizungen. Kombinierbar mit anderen BAFA-Förderprogrammen.',
+        desc: 'Tauschen Sie Ihre alte Heizung gegen eine moderne klimafreundliche Lösung. Bis zu 35 % Zuschuss möglich.',
         category: 'energie',
         amount: 'Bis zu 35 %',
-        source: 'BAFA',
-        url: 'heizung-austausch-foerderung.html',
-        img: 'images/heizung_card.png',
-        tags: ['heizung', 'öl', 'gas', 'austausch', 'bafa', 'sanierung'],
+        source: 'BAFA / KfW',
+        url: 'foerderung-heizungstausch-2026.html',
+        img: 'images/heizung_austausch_premium.png',
+        tags: ['heizung', 'wärmepumpe', 'zuschuss', 'sanierung', 'energie', 'kfw'],
     },
     {
         id: 'gruenderzuschuss',
@@ -133,17 +133,7 @@ const PROGRAMS = [
         img: 'images/photovoltaik_bayern_card.png',
         tags: ['photovoltaik', 'solar', 'bayern', 'speicher', 'strom', 'energie'],
     },
-    {
-        id: 'heizungstausch-2026',
-        name: 'Heizungstausch Förderung 2026',
-        desc: 'Tauschen Sie Ihre alte Heizung gegen eine moderne klimafreundliche Lösung. Bis zu 35 % Zuschuss möglich.',
-        category: 'energie',
-        amount: 'Bis zu 35 %',
-        source: 'KfW / BAFA',
-        url: 'foerderung-heizungstausch-2026.html',
-        img: 'images/heizung_austausch_premium.png',
-        tags: ['heizung', 'wärmepumpe', 'zuschuss', 'sanierung', 'energie', 'kfw'],
-    },
+
     {
         id: 'daemmung-dach',
         name: 'Dachdämmung Förderung 2026',
