@@ -75,7 +75,7 @@ const PROGRAMS = [
         amount: 'Ab 1 % Zins',
         source: 'KfW Bank',
         url: 'kfw-foerderung.html',
-        img: 'images/kfw_foerderprogramme_2026.png',
+        img: 'images/kfw_card_2026.png',
         tags: ['kfw', 'kredit', 'bank', 'zinsen', 'wohnen', 'energie', 'gründen'],
     },
     {
@@ -647,7 +647,26 @@ window.FoerderSearch = {
             mobil: 'Mobilität', familie: 'Familie & Bildung', wohnen: 'Wohnen & Kredit',
         };
 
-        container.innerHTML = programs.map(p => `
+        container.innerHTML = programs.map(p => {
+            if (p.id === 'kfw') {
+                return `
+                <a href="${p.url}" class="portal-card animate-in" data-category="${p.category}">
+                    <div class="portal-card__img-wrap">
+                        <img src="${p.img}" alt="${p.name}" class="portal-card__img" loading="lazy">
+                    </div>
+                    <div class="portal-card__body">
+                        <div class="portal-card__badges">
+                            <span class="portal-card__badge portal-card__badge--blue">${catLabels[p.category] || p.category}</span>
+                            <span class="portal-card__badge portal-card__badge--dark">${p.amount}</span>
+                        </div>
+                        <h3 class="portal-card__title">${p.name}</h3>
+                        <p class="portal-card__desc">${p.desc}</p>
+                        <button class="portal-card__btn">Details ansehen &rarr;</button>
+                    </div>
+                </a>`;
+            }
+
+            return `
       <a href="${p.url}" class="img-card animate-in" data-category="${p.category}">
         <div class="img-card__img-wrap">
           <img src="${p.img}" alt="${p.name}" class="img-card__img" loading="lazy">
@@ -663,8 +682,8 @@ window.FoerderSearch = {
             <span class="img-card__btn">Details ansehen →</span>
           </div>
         </div>
-      </a>
-    `).join('');
+      </a>`;
+        }).join('');
 
         if (window.FoerderSearch._reObserve) window.FoerderSearch._reObserve();
     },
