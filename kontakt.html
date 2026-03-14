@@ -220,14 +220,12 @@
             };
 
             try {
-                // Determine if we are on a known local dev port
-                const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-                const baseUrl = isLocal ? `${window.location.protocol}//${window.location.hostname}:3000` : '';
+                // Formspree Endpoint from User
+                const formspreeUrl = 'https://formspree.io/f/mkoqzeej';
                 
-                const res = await fetch(`${baseUrl}/api/contact`, {
+                const res = await fetch(formspreeUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'include',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
                 
@@ -235,14 +233,13 @@
                     showNotification();
                     document.getElementById('contactForm').reset();
                 } else {
-                    const data = await res.json().catch(() => ({}));
                     statusMsg.className = 'form-message error';
-                    statusMsg.textContent = data.error || 'Fehler beim Senden. Bitte versuchen Sie es später erneut.';
+                    statusMsg.textContent = 'Hoppla! Es gab ein Problem beim Senden. Bitte versuchen Sie es direkt per E-Mail.';
                 }
             } catch (err) {
                 statusMsg.className = 'form-message error';
-                console.error('Contact submission error:', err);
-                statusMsg.textContent = 'Server nicht erreichbar. Bitte stellen Sie sicher, dass das Backend läuft (Port 3000).';
+                console.error('Formspree error:', err);
+                statusMsg.textContent = 'Netzwerkfehler. Bitte prüfen Sie Ihre Verbindung oder versuchen Sie es später erneut.';
             } finally {
                 btn.textContent = 'Nachricht senden';
                 btn.disabled = false;
