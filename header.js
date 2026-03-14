@@ -213,58 +213,6 @@
   </div>
 </nav>
 
-<!-- Splash Screen -->
-<div id="splash-screen" style="
-    position: fixed; inset: 0; z-index: 9999;
-    background: #FFFFFF; display: flex; align-items: center; justify-content: center;
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
-">
-    <div id="splash-content" style="
-        font-size: 1.75rem; font-weight: 900; color: #0f172a; 
-        letter-spacing: -0.04em; opacity: 0; transform: translateY(10px);
-        transition: all 0.5s ease 0.1s;
-    ">
-        FoerderCheckPlus.de
-    </div>
-</div>
-
-<script>
-    (function() {
-        const splash = document.getElementById('splash-screen');
-        const content = document.getElementById('splash-content');
-        const isMobile = window.innerWidth <= 768;
-        const hasShownSplash = sessionStorage.getItem('splash_shown');
-        
-        // Only show once per session on mobile
-        if (!isMobile || hasShownSplash) {
-            splash.style.display = 'none';
-            return;
-        }
-
-        const isDark = localStorage.getItem('theme') === 'dark';
-        if (isDark) {
-            splash.style.background = '#0b1120';
-            content.style.color = '#f8fafc';
-        }
-
-        sessionStorage.setItem('splash_shown', 'true');
-
-        // Show content
-        setTimeout(() => {
-            content.style.opacity = '1';
-            content.style.transform = 'translateY(0)';
-        }, 50);
-
-        // Hide splash
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                splash.style.opacity = '0';
-                splash.style.visibility = 'hidden';
-            }, 800); 
-        });
-    })();
-</script>
-
 <div class="mobile-menu" id="mobile-menu-overlay">
   <div class="mobile-menu__content">
     <a href="/" class="mobile-menu__link" data-page="index.html">Startseite</a>

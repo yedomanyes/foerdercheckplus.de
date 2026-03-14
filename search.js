@@ -64,7 +64,7 @@ const PROGRAMS = [
         amount: 'Variiert',
         source: 'Verschiedene',
         url: 'foerderung-selbststaendige.html',
-        img: 'images/selbststaendige_card.png',
+        img: 'images/FöderungenFürSelbständige.png',
         tags: ['selbstständig', 'freiberufler', 'unternehmer', 'kredit', 'beratung'],
     },
     {
