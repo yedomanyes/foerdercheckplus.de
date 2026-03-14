@@ -75,7 +75,7 @@ const PROGRAMS = [
         amount: 'Ab 1 % Zins',
         source: 'KfW Bank',
         url: 'kfw-foerderung.html',
-        img: 'images/kfw_card.png',
+        img: 'images/KfW Förderprogramme 2026.png',
         tags: ['kfw', 'kredit', 'bank', 'zinsen', 'wohnen', 'energie', 'gründen'],
     },
     {
