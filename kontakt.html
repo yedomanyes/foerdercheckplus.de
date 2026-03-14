@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -220,8 +220,10 @@
             };
 
             try {
-                const isDev = ['5500', '5501', '5502', '3001'].includes(window.location.port);
-                const baseUrl = isDev ? `${window.location.protocol}//${window.location.hostname}:3000` : '';
+                // Determine if we are on a known local dev port
+                const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+                const baseUrl = isLocal ? `${window.location.protocol}//${window.location.hostname}:3000` : '';
+                
                 const res = await fetch(`${baseUrl}/api/contact`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -233,13 +235,14 @@
                     showNotification();
                     document.getElementById('contactForm').reset();
                 } else {
-                    const data = await res.json();
+                    const data = await res.json().catch(() => ({}));
                     statusMsg.className = 'form-message error';
-                    statusMsg.textContent = data.error || 'Fehler beim Senden.';
+                    statusMsg.textContent = data.error || 'Fehler beim Senden. Bitte versuchen Sie es später erneut.';
                 }
             } catch (err) {
                 statusMsg.className = 'form-message error';
-                statusMsg.textContent = 'Netzwerkfehler. Bitte prüfen Sie Ihre Verbindung.';
+                console.error('Contact submission error:', err);
+                statusMsg.textContent = 'Server nicht erreichbar. Bitte stellen Sie sicher, dass das Backend läuft (Port 3000).';
             } finally {
                 btn.textContent = 'Nachricht senden';
                 btn.disabled = false;

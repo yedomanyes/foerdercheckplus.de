@@ -28,10 +28,10 @@ const PROGRAMS = [
         name: 'Sanierung Förderung 2026',
         desc: 'Bundesförderung für effiziente Gebäude (BEG): Zuschüsse und günstige Kredite für energetische Sanierungsmaßnahmen.',
         category: 'energie',
-        amount: 'Bis zu 45 % + Kredit',
+        amount: 'Bis zu 45 %',
         source: 'BAFA / KfW',
         url: 'sanierung-foerderung.html',
-        img: 'images/sanierung_card.png',
+        img: 'images/Sanierung45Prozent.png',
         tags: ['sanierung', 'energie', 'gebäude', 'beg', 'bafa', 'kfw', 'dämmung'],
     },
     {
