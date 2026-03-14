@@ -136,12 +136,12 @@ const PROGRAMS = [
     {
         id: 'heizungstausch-2026',
         name: 'Heizungstausch Förderung 2026',
-        desc: 'Tauschen Sie Ihre alte Heizung gegen eine moderne Wärmepumpe oder Biomasseanlage. Bis zu 70 % Zuschuss möglich.',
+        desc: 'Tauschen Sie Ihre alte Heizung gegen eine moderne klimafreundliche Lösung. Bis zu 35 % Zuschuss möglich.',
         category: 'energie',
-        amount: 'Bis zu 70 %',
+        amount: 'Bis zu 35 %',
         source: 'KfW / BAFA',
         url: 'foerderung-heizungstausch-2026.html',
-        img: 'images/heizungstausch_card.png',
+        img: 'images/heizung_austausch_premium.png',
         tags: ['heizung', 'wärmepumpe', 'zuschuss', 'sanierung', 'energie', 'kfw'],
     },
     {

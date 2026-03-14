@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 
 <head>
@@ -12,239 +12,370 @@
     <link rel="icon" type="image/png" href="förderchecklogo.png">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>body,h1,h2,h3,h4,p,a,span,div,li,td,input,button{font-family:'Poppins',sans-serif!important}</style>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-N4VE8HX6XX');
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-N4VE8HX6XX');
-    </script>
-    <!-- Dark Mode Init (prevents flash) -->
-    <script>
-      (function() {
-        var t = localStorage.getItem('theme');
-        if (t === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
-        else { document.documentElement.removeAttribute('data-theme'); }
-      })();
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4VE8HX6XX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-N4VE8HX6XX');
-    </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2068043467304653"
-         crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --p-blue: #1e3a8a;
+            --p-accent: #3b82f6;
+            --p-glass: rgba(255, 255, 255, 0.7);
+            --p-border: rgba(30, 58, 138, 0.08);
+            --p-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif !important; 
+            background: #fafafa; 
+            overflow-x: hidden; 
+            width: 100%;
+            position: relative;
+        }
+        
+        html { overflow-x: hidden; }
+
+        /* SaaS Mesh Hero */
+        .saas-hero {
+            position: relative;
+            padding: 120px 0 100px;
+            background: #fff;
+            overflow: hidden;
+            border-bottom: 1px solid var(--p-border);
+        }
+
+        .saas-hero__mesh {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: 0;
+            animation: pulse-mesh 10s infinite alternate;
+        }
+
+        @keyframes pulse-mesh {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.15) translate(-50px, 30px); }
+        }
+
+        .saas-hero__content { position: relative; z-index: 1; text-align: center; }
+
+        .saas-hero__label {
+            display: inline-flex;
+            padding: 6px 16px;
+            background: #eff6ff;
+            color: #1e40af;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        .saas-hero__h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #0f172a;
+            margin-bottom: 32px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .saas-hero__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .hero-stat {
+            background: var(--p-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .hero-stat__val {
+            font-size: 2.5rem;
+            font-weight: 850;
+            color: #1e3a8a;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .hero-stat__label { font-size: 0.85rem; font-weight: 600; color: #64748b; }
+
+        /* Content Sections */
+        .premium-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 48px;
+            box-shadow: var(--p-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            margin-bottom: 64px;
+            transition: transform 0.4s ease;
+        }
+
+        .premium-card:hover { transform: translateY(-4px); }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-weight: 700;
+            background: rgba(59, 130, 246, 0.05);
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        /* Radical Sidebar Redesign */
+        .glass-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .cta-premium {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: #fff;
+            padding: 32px;
+            border-radius: 28px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+        }
+
+        .cta-premium h3 { color: #fff !important; margin-bottom: 12px; }
+
+        .btn-saas {
+            display: block;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: #fff;
+            padding: 22px 32px;
+            border-radius: 20px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-top: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3), 0 4px 0 #1d4ed8;
+            position: relative;
+            z-index: 10;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .btn-saas:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4), 0 2px 0 #1d4ed8; }
+        .btn-saas:active { transform: translateY(2px); box-shadow: 0 5px 10px rgba(37, 99, 235, 0.3), 0 0 0 #1d4ed8; }
+
+        /* Sidebar Steps Swiper */
+        .sidebar-steps-container {
+            background: #fff;
+            border: 1px solid #f1f5f9;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .sidebar-steps-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .sidebar-steps-title { font-size: 0.95rem; font-weight: 800; text-transform: uppercase; color: #3b82f6; }
+        .sidebar-steps-nav { display: flex; gap: 8px; }
+        .sidebar-step-btn { width: 32px; height: 32px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #64748b; }
+        .sidebar-step-btn:hover { color: #3b82f6; border-color: #3b82f6; }
+
+        .sidebar-steps-content { position: relative; min-height: 120px; overflow: hidden; }
+        .sidebar-step-item { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transform: translateX(20px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
+        .sidebar-step-item.active { opacity: 1; transform: translateX(0); pointer-events: auto; position: relative; }
+        .step-num { font-size: 0.85rem; font-weight: 800; color: #3b82f6; margin-bottom: 12px; }
+        .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .step-desc { font-size: 0.9rem; color: #64748b; line-height: 1.5; }
+
+        /* Discovery Grid */
+        .discovery { margin-top: 100px; padding-bottom: 120px; }
+        .discovery__title { font-size: 2rem; font-weight: 850; text-align: center; margin-bottom: 48px; }
+        .discovery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
+        .discovery-card { position: relative; height: 450px; border-radius: 32px; overflow: hidden; cursor: pointer; }
+        .discovery-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .discovery-card:hover .discovery-card__img { transform: scale(1.1); }
+        .discovery-card__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+        .discovery-card__cat { font-size: 0.75rem; font-weight: 800; color: #3b82f6; text-transform: uppercase; margin-bottom: 8px; }
+        .discovery-card__h3 { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
+        .discovery-card__badge { display: inline-flex; padding: 4px 12px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: #fff; }
+
+        /* Comprehensive Dark Mode System */
+        [data-theme="dark"] body { background: #0b1120; color: #f1f5f9; }
+        [data-theme="dark"] .saas-hero { background: radial-gradient(circle at top right, #1e3a8a 0%, #0b1120 100%); border-bottom-color: rgba(255,255,255,0.05); }
+        [data-theme="dark"] .saas-hero__mesh { opacity: 0.15; }
+        [data-theme="dark"] .saas-hero__h1 { color: #fff; }
+        [data-theme="dark"] .premium-card { background: rgba(15, 23, 42, 0.7); border-color: rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        [data-theme="dark"] h2 { color: #f8fafc; }
+        [data-theme="dark"] p { color: #94a3b8; }
+        [data-theme="dark"] .hero-stat { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); }
+        [data-theme="dark"] .hero-stat__val { color: #fff; }
+        [data-theme="dark"] .sidebar-steps-container { background: #0f172a; border-color: rgba(255, 255, 255, 0.05); }
+        [data-theme="dark"] .sidebar-step-btn { background: #1e293b; border-color: rgba(255, 255, 255, 0.1); color: #94a3b8; }
+        [data-theme="dark"] .faq-item__trigger { color: #f8fafc !important; border-bottom-color: rgba(255, 255, 255, 0.1) !important; }
+
+        h2 { font-size: 2.4rem; font-weight: 850; letter-spacing: -0.02em; margin-bottom: 20px; color: #0f172a; }
+        p { font-size: 1.15rem; line-height: 1.85; color: #334155; margin-bottom: 24px; }
+        
+        @media(max-width: 768px) {
+            .saas-hero { padding: 40px 0 30px; }
+            .saas-hero__h1 { font-size: 2.1rem; }
+            .premium-card { padding: 40px 24px; }
+            .hero-stat__val { font-size: 1.3rem; }
+            .hero-stat__label { font-size: 0.65rem; }
+            .discovery-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; margin: 0 -20px; padding: 0 20px 24px; scrollbar-width: none; }
+            .discovery-grid::-webkit-scrollbar { display: none; }
+            .discovery-card { flex: 0 0 280px; scroll-snap-align: start; }
+        }
+    </style>
 </head>
 
 <body>
     <script src="header.js"></script>
 
-    <section class="detail-hero">
-        <div class="container detail-hero__inner">
-            <nav class="detail-hero__breadcrumb">
-                <a href="index.html">Startseite</a><span class="detail-hero__breadcrumb-sep">›</span>
-                <a href="foerderungen.html">Förderprogramme</a><span class="detail-hero__breadcrumb-sep">›</span>
-                <span>Photovoltaik</span>
-            </nav>
-            <div class="detail-hero__meta">
-                <span class="badge badge--energie">⚡ Energie &amp; Haus</span>
-                <span class="detail-hero__meta-item">📅 Aktuell für 2026</span>
-                <span class="detail-hero__meta-item">️ KfW / Netzbetreiber</span>
-            </div>
-            <h1 class="detail-hero__title">Photovoltaik Förderung 2026</h1>
-            <div style="display:flex;gap:2rem;flex-wrap:wrap;align-items:flex-end">
-                <div>
-                    <div class="detail-hero__amount">Ab 6,81 ct/kWh</div>
-                    <div class="detail-hero__amount-label">Einspeisevergütung</div>
+    <div class="saas-hero">
+        <div class="saas-hero__mesh"></div>
+        <div class="container saas-hero__content">
+            <h1 class="saas-hero__h1">Maximieren Sie Ihre Photovoltaik-Förderung</h1>
+            <div class="saas-hero__label">Einfach · Sicher · Gefördert 2026</div>
+            
+            <div class="saas-hero__grid">
+                <div class="hero-stat">
+                    <div class="hero-stat__val">Ab 6,81 ct</div>
+                    <div class="hero-stat__label">Einspeisevergütung</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat__val">0 %</div>
+                    <div class="hero-stat__label">Mehrwertsteuer (MwSt)</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat__val">20 Jahre</div>
+                    <div class="hero-stat__label">Garantierte Vergütung</div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="section">
+     <section class="section">
         <div class="container">
             <div class="content-layout">
                 <main class="content-main">
-                    <h2>Was ist die Photovoltaik-Förderung?</h2>
-                    <p>Für Photovoltaikanlagen in Deutschland gibt es 2026 mehrere staatliche Fördermaxnahmen: die
-                        gesetzliche <strong>Einspeisevergütung nach EEG</strong>, <strong>Steuervergünstigungen</strong>
-                        (Mehrwertsteuerbefreiung, Einkommensteuerfreiheit), und <strong>günstige Kredite der
-                            KfW</strong>.</p>
+                    <section class="premium-card reveal">
+                        <h2>Was ist die Photovoltaik-Förderung?</h2>
+                        <p>Für Photovoltaikanlagen in Deutschland gibt es 2026 mehrere staatliche Fördermaxnahmen: die gesetzliche <span class="highlight">Einspeisevergütung nach EEG</span>, <span class="highlight">Steuervergünstigungen</span> (0 % Mehrwertsteuer), und <span class="highlight">günstige Kredite der KfW</span>.</p>
+                        <p>Seit 2023 profitieren Hausbesitzer zudem von der vollständigen Einkommensteuerbefreiung für Anlagen bis 30 kWp auf Wohngebäuden.</p>
 
-                    <div class="info-box info-box--tip">
-                        
-                        <div class="info-box__text"><strong>Gut zu wissen:</strong> Seit 2023 gilt für PV-Anlagen bis 30
-                            kWp auf Wohngebäuden <strong>0 % Mehrwertsteuer</strong> beim Kauf  das spart sofort 19 %
-                            der Kosten.</div>
-                    </div>
+                        <h2>Wer bekommt die Förderung?</h2>
+                        <ul>
+                            <li>Haus- und Wohnungsbesitzer (Eigennutzer und Vermieter)</li>
+                            <li>Gewerbetreibende mit Betriebsgebäuden</li>
+                            <li>Mieter (Balkonkraftwerke bis 800 Watt)</li>
+                            <li>Genossenschaften und Energiegemeinschaften</li>
+                        </ul>
+                    </section>
 
-                    <h2>Wer bekommt die Förderung?</h2>
-                    <ul>
-                        <li>Haus- und Wohnungsbesitzer (Eigennutzer und Vermieter)</li>
-                        <li>Gewerbetreibende mit Betriebsgebäuden</li>
-                        <li>Mieter mit Genehmigung des Eigentümers (Balkonkraftwerke)</li>
-                        <li>Genossenschaften und Energiegemeinschaften</li>
-                    </ul>
+                    <section class="premium-card reveal">
+                        <h2>Wie viel Geld gibt es?</h2>
+                        <h3>1. Einspeisevergütung (EEG 2026)</h3>
+                        <p>Für jede Kilowattstunde, die ins öffentliche Netz eingespeist wird, erhalten Sie eine festgelegte Vergütung für 20 Jahre:</p>
+                        <ul>
+                            <li>Anlagen bis 10 kWp: <span class="highlight">8,11 ct/kWh</span> (Volleinspeisung) / 6,81 ct/kWh (Teileinspeisung)</li>
+                            <li>Anlagen 10-40 kWp: <span class="highlight">7,03 ct/kWh</span> (Volleinspeisung) / 5,73 ct/kWh (Teileinspeisung)</li>
+                        </ul>
 
-                    <h2>Wie viel Geld gibt es?</h2>
-                    <h3>1. Einspeisevergütung (EEG 2023/2026)</h3>
-                    <p>Für jede Kilowattstunde, die ins öffentliche Netz eingespeist wird, erhalten Sie eine festgelegte
-                        Vergütung:</p>
-                    <ul>
-                        <li>Anlagen bis 10 kWp: <strong>8,11 ct/kWh</strong> (Volleinspeisung) / 6,81 ct/kWh
-                            (Teileinspeisung)</li>
-                        <li>Anlagen 1040 kWp: <strong>7,03 ct/kWh</strong> (Volleinspeisung) / 5,73 ct/kWh
-                            (Teileinspeisung)</li>
-                        <li>Anlagen 40100 kWp: <strong>5,74 ct/kWh</strong></li>
-                    </ul>
-                    <p>Die Vergütung wird für <strong>20 Jahre</strong> ab Inbetriebnahme garantiert.</p>
+                        <h3>2. Steuerliche Vorteile</h3>
+                        <p>Dank der <span class="highlight">0 % Mehrwertsteuer</span> beim Kauf und der Installation sparen Sie sofort 19 % der Investitionskosten. Zudem sind die Erträge für Anlagen bis 30 kWp steuerfrei.</p>
+                    </section>
 
-                    <h3>2. Steuerliche Vorteile</h3>
-                    <ul>
-                        <li><strong>0 % Mehrwertsteuer</strong> auf Kauf und Installation (bis 30 kWp auf Wohngebäuden)
-                        </li>
-                        <li><strong>Einkommensteuerfreiheit</strong> für PV-Anlagen bis 30 kWp (seit 2023)</li>
-                        <li>Keine Gewerbeanmeldung erforderlich</li>
-                    </ul>
-
-                    <h3>3. KfW-Kredit 270  Erneuerbare Energien</h3>
-                    <p>Für gröxere Anlagen bietet die KfW günstige Kredite ab 1 % effektiver Jahreszins mit bis zu
-                        <strong>50 Millionen Euro</strong> Kreditvolumen pro Vorhaben.</p>
-
-                    <h2>Schritt-für-Schritt: Photovoltaik installieren und fördern</h2>
-                    <div class="steps-checklist">
-                        <div class="steps-checklist__item">
-                            <div class="steps-checklist__num">1</div>
-                            <div class="steps-checklist__content">
-                                <div class="steps-checklist__title">Anlage planen lassen</div>
-                                <div class="steps-checklist__desc">Holen Sie Angebote von mehreren Fachbetrieben ein und
-                                    berechnen Sie mit einem Solarkalkulator die optimale Anlagengröxe.</div>
+                    <section class="premium-card reveal">
+                        <h2>Häufige Fragen (FAQ)</h2>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <button class="faq-item__trigger" style="display:flex; justify-content:space-between; width:100%; text-align:left; background:none; border:none; padding:24px 0; font-weight:700; font-size:1.2rem; color:#0f172a; cursor:pointer; border-bottom:1px solid #f1f5f9;">
+                                    Wie lange gilt die Einspeisevergütung?
+                                    <span class="faq-item__icon">+</span>
+                                </button>
+                                <div class="faq-item__content" style="display:none; padding:24px 0; color:#475569; font-size:1.1rem; line-height:1.7;">
+                                    Die Einspeisevergütung wird für <strong>20 Jahre</strong> ab dem Datum der Inbetriebnahme garantiert. Dies bietet Ihnen eine langfristige Planungssicherheit für Ihre Investition.
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-item__trigger" style="display:flex; justify-content:space-between; width:100%; text-align:left; background:none; border:none; padding:24px 0; font-weight:700; font-size:1.2rem; color:#0f172a; cursor:pointer; border-bottom:1px solid #f1f5f9;">
+                                    Muss ich die PV-Anlage beim Finanzamt anmelden?
+                                    <span class="faq-item__icon">+</span>
+                                </button>
+                                <div class="faq-item__content" style="display:none; padding:24px 0; color:#475569; font-size:1.1rem; line-height:1.7;">
+                                    Seit der Einführung der 0 % Mehrwertsteuer und der Einkommensteuerfreiheit für kleine Anlagen (bis 30 kWp) ist die bürokratische Anmeldung beim Finanzamt deutlich vereinfacht worden und oft gar nicht mehr nötig.
+                                </div>
                             </div>
                         </div>
-                        <div class="steps-checklist__item">
-                            <div class="steps-checklist__num">2</div>
-                            <div class="steps-checklist__content">
-                                <div class="steps-checklist__title">Netzbetreiber vorab informieren</div>
-                                <div class="steps-checklist__desc">Melden Sie die geplante Anlage Ihrem Netzbetreiber 
-                                    er prüft die Netzanschlussmöglichkeit und genehmigt den Einspeisevertrag.</div>
-                            </div>
-                        </div>
-                        <div class="steps-checklist__item">
-                            <div class="steps-checklist__num">3</div>
-                            <div class="steps-checklist__content">
-                                <div class="steps-checklist__title">KfW-Kredit beantragen (falls gewünscht)</div>
-                                <div class="steps-checklist__desc">Stellen Sie den Antrag über Ihre Hausbank, die den
-                                    KfW-270-Kredit vermittelt. Der Antrag muss vor Baubeginn erfolgen.</div>
-                            </div>
-                        </div>
-                        <div class="steps-checklist__item">
-                            <div class="steps-checklist__num">4</div>
-                            <div class="steps-checklist__content">
-                                <div class="steps-checklist__title">Installation beauftragen</div>
-                                <div class="steps-checklist__desc">Beauftragen Sie den Fachbetrieb mit Installation,
-                                    Abnahme und Netzanschluss. Nach Inbetriebnahme erhalten Sie die Einspeisevergütung
-                                    automatisch.</div>
-                            </div>
-                        </div>
-                        <div class="steps-checklist__item">
-                            <div class="steps-checklist__num">5</div>
-                            <div class="steps-checklist__content">
-                                <div class="steps-checklist__title">Im Marktstammdatenregister registrieren</div>
-                                <div class="steps-checklist__desc">Jede PV-Anlage muss innerhalb eines Monats im
-                                    Marktstammdatenregister der Bundesnetzagentur registriert werden.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2>Tipps für mehr Ertrag und Förderung</h2>
-                    <ul>
-                        <li>Kombinieren Sie PV mit Batteriespeicher  viele Bundesländer fördern Speicher zusätzlich
-                        </li>
-                        <li>Prüfen Sie Volleinspeisung vs. Eigenverbrauch  bei hohem Eigenverbrauch lohnt sich ein
-                            Speicher</li>
-                        <li>Balkonkraftwerke bis 800 Watt sind ohne Genehmigung und mit vereinfachter Anmeldung möglich
-                        </li>
-                        <li>Einige Gemeinden bieten lokale Zuschüsse für Solarspeicher an</li>
-                    </ul>
-
-                    <h2>Häufige Fragen zur PV-Förderung</h2>
-                    <div class="faq-list" style="margin-top:1.5rem">
-                        <div class="faq-item">
-                            <button class="faq-item__trigger" aria-expanded="false">Wie lange gilt die
-                                Einspeisevergütung?<span class="faq-item__icon"><svg width="12" height="12"
-                                        viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        stroke-linecap="round">
-                                        <path d="M6 1v10M1 6h10" />
-                                    </svg></span></button>
-                            <div class="faq-item__content">
-                                <div class="faq-item__body">Die Einspeisevergütung wird für <strong>20 Jahre</strong> ab
-                                    dem Datum der Inbetriebnahme garantiert und ist damit eine sichere, planbare
-                                    Einnahme.</div>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <button class="faq-item__trigger" aria-expanded="false">Muss ich eine Steuererklärung
-                                abgeben?<span class="faq-item__icon"><svg width="12" height="12" viewBox="0 0 12 12"
-                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                                        <path d="M6 1v10M1 6h10" />
-                                    </svg></span></button>
-                            <div class="faq-item__content">
-                                <div class="faq-item__body">Seit 2023 sind PV-Anlagen bis 30 kWp vollständig
-                                    einkommensteuerbefreit. Sie müssen die Erträge <strong>nicht mehr in der
-                                        Steuererklärung</strong> angeben.</div>
-                            </div>
-                        </div>
-                    </div>
+                    </section>
                 </main>
 
                 <aside class="sidebar">
-                    <div class="sidebar-card sidebar-card__cta">
-                        <div class="sidebar-card__cta-title">KfW-Kredit beantragen</div>
-                        <div class="sidebar-card__cta-text">Finanzieren Sie Ihre PV-Anlage mit dem günstigen KfW-Kredit
-                            270.</div>
-                        <a href="https://www.kfw.de/inlandsfoerderung/Privatpersonen/Bestehende-Immobilie/F%C3%B6rderprodukte/Erneuerbare-Energien-Standard-(270)/"
-                            target="_blank" rel="noopener" class="btn btn--accent w-full"
-                            style="justify-content:center">Zum KfW-Portal →</a>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <div class="sidebar-card__title">Schnellübersicht</div>
-                        <div class="quick-facts">
-                            <div class="quick-fact"><span class="quick-fact__label">Einspeisevergütung</span><span
-                                    class="quick-fact__value">6,818,11 ct/kWh</span></div>
-                            <div class="quick-fact"><span class="quick-fact__label">Mehrwertsteuer</span><span
-                                    class="quick-fact__value">0 % (bis 30 kWp)</span></div>
-                            <div class="quick-fact"><span class="quick-fact__label">Einkommensteuer</span><span
-                                    class="quick-fact__value">Frei (bis 30 kWp)</span></div>
-                            <div class="quick-fact"><span class="quick-fact__label">KfW-Kredit</span><span
-                                    class="quick-fact__value">Ab 1 % p.a.</span></div>
-                            <div class="quick-fact"><span class="quick-fact__label">Laufzeit Vergütung</span><span
-                                    class="quick-fact__value">20 Jahre</span></div>
+                    <div class="glass-sidebar">
+                        <div class="cta-premium">
+                            <h3 style="font-size:1.6rem; font-weight:850; margin-bottom:12px; position:relative; z-index:1;">KfW Kredit 270</h3>
+                            <p style="color:inherit; opacity:0.8; font-size:0.95rem; line-height:1.6; margin-bottom:28px; position:relative; z-index:1;">Zinsgünstige Finanzierung für Ihre PV-Anlage.</p>
+                            <a href="https://www.kfw.de/270" target="_blank" class="btn-saas">Kredit prüfen →</a>
                         </div>
-                    </div>
 
-                    <div class="sidebar-card">
-                        <div class="sidebar-card__title">Verwandte Programme</div>
-                        <div style="display:flex;flex-direction:column;gap:.75rem">
-                            <a href="waermepumpe-foerderung.html"
-                                style="display:flex;align-items:center;gap:.75rem;padding:.75rem;border-radius:var(--r-md);background:var(--color-surface-2);color:var(--color-text);font-size:var(--text-sm);font-weight:500">
-                                 <span>Wärmepumpe Förderung</span></a>
-                            <a href="sanierung-foerderung.html"
-                                style="display:flex;align-items:center;gap:.75rem;padding:.75rem;border-radius:var(--r-md);background:var(--color-surface-2);color:var(--color-text);font-size:var(--text-sm);font-weight:500">
-                                 <span>Sanierung Förderung</span></a>
-                            <a href="kfw-foerderung.html"
-                                style="display:flex;align-items:center;gap:.75rem;padding:.75rem;border-radius:var(--r-md);background:var(--color-surface-2);color:var(--color-text);font-size:var(--text-sm);font-weight:500">
-                                 <span>KfW Förderprogramme</span></a>
+                        <div class="sidebar-steps-container">
+                            <div class="sidebar-steps-header">
+                                <div class="sidebar-steps-title">Schritt für Schritt</div>
+                                <div class="sidebar-steps-nav">
+                                    <button class="sidebar-step-btn" id="prev-step" aria-label="Vorheriger Schritt">←</button>
+                                    <button class="sidebar-step-btn" id="next-step" aria-label="Nächster Schritt">→</button>
+                                </div>
+                            </div>
+                            <div class="sidebar-steps-content" id="sidebar-steps-content">
+                                <div class="sidebar-step-item active" data-step="1">
+                                    <div class="step-num">Schritt 01</div>
+                                    <h4 class="step-title">Planung</h4>
+                                    <p class="step-desc">Dachfläche prüfen und Angebote von Fachbetrieben einholen.</p>
+                                </div>
+                                <div class="sidebar-step-item" data-step="2">
+                                    <div class="step-num">Schritt 02</div>
+                                    <h4 class="step-title">Netzprüfung</h4>
+                                    <p class="step-desc">Anmeldung der geplanten Anlage beim lokalen Netzbetreiber.</p>
+                                </div>
+                                <div class="sidebar-step-item" data-step="3">
+                                    <div class="step-num">Schritt 03</div>
+                                    <h4 class="step-title">Beantragung</h4>
+                                    <p class="step-desc">KfW-Kredit 270 optional vor Baubeginn beantragen.</p>
+                                </div>
+                                <div class="sidebar-step-item" data-step="4">
+                                    <div class="step-num">Schritt 04</div>
+                                    <h4 class="step-title">Installation</h4>
+                                    <p class="step-desc">Fachgerechter Aufbau und Anschluss durch den Solarteur.</p>
+                                </div>
+                                <div class="sidebar-step-item" data-step="5">
+                                    <div class="step-num">Schritt 05</div>
+                                    <h4 class="step-title">MStR</h4>
+                                    <p class="step-desc">Registrierung im Marktstammdatenregister der Bundesnetzagentur.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </aside>
@@ -252,10 +383,115 @@
         </div>
     </section>
 
+    <div class="discovery container reveal">
+        <h2 class="discovery__title">Andere Förderprogramme entdecken</h2>
+        <div class="discovery-grid">
+            <div class="discovery-card" onclick="location.href='waermepumpe-foerderung.html'">
+                <img src="images/waermepumpe_card.png" class="discovery-card__img" alt="Wärmepumpe">
+                <div class="discovery-card__overlay">
+                    <div class="discovery-card__cat">Heizung</div>
+                    <h3 class="discovery-card__h3">Wärmepumpe Förderung</h3>
+                    <div class="discovery-card__badge">Bis zu 70%</div>
+                </div>
+            </div>
+            <div class="discovery-card" onclick="location.href='sanierung-foerderung.html'">
+                <img src="images/Sanierung45Prozent.png" class="discovery-card__img" alt="Sanierung">
+                <div class="discovery-card__overlay">
+                    <div class="discovery-card__cat">Wohnen</div>
+                    <h3 class="discovery-card__h3">Sanierung Förderung 2026</h3>
+                    <div class="discovery-card__badge">Bis zu 45%</div>
+                </div>
+            </div>
+            <div class="discovery-card" onclick="location.href='kfw-foerderung.html'">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" class="discovery-card__img" alt="KfW">
+                <div class="discovery-card__overlay">
+                    <div class="discovery-card__cat">Kredite</div>
+                    <h3 class="discovery-card__h3">KfW Förderprogramme</h3>
+                    <div class="discovery-card__badge">Zinsgünstig</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="footer.js"></script>
     <script src="main.js"></script>
-</body>
 
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.closest('.faq-item');
+                const content = item.querySelector('.faq-item__content');
+                const icon = trigger.querySelector('.faq-item__icon');
+                
+                const isOpen = content.style.display === 'block';
+                
+                // Close all others
+                document.querySelectorAll('.faq-item__content').forEach(c => c.style.display = 'none');
+                document.querySelectorAll('.faq-item__icon').forEach(i => i.textContent = '+');
+
+                if (!isOpen) {
+                    content.style.display = 'block';
+                    icon.textContent = '-';
+                }
+            });
+        });
+
+        // Sidebar Swiper Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.sidebar-step-item');
+            const prevBtn = document.getElementById('prev-step');
+            const nextBtn = document.getElementById('next-step');
+            let currentIdx = 0;
+
+            if (steps.length > 0 && prevBtn && nextBtn) {
+                function showStep(idx) {
+                    steps.forEach(s => s.classList.remove('active'));
+                    steps[idx].classList.add('active');
+                    
+                    prevBtn.style.opacity = idx === 0 ? '0.3' : '1';
+                    prevBtn.style.pointerEvents = idx === 0 ? 'none' : 'auto';
+                    
+                    nextBtn.style.opacity = idx === steps.length - 1 ? '0.3' : '1';
+                    nextBtn.style.pointerEvents = idx === steps.length - 1 ? 'none' : 'auto';
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentIdx > 0) {
+                        currentIdx--;
+                        showStep(currentIdx);
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentIdx < steps.length - 1) {
+                        currentIdx++;
+                        showStep(currentIdx);
+                    }
+                });
+
+                showStep(0);
+            }
+        });
+
+        // Scroll Reveal Observer
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: "0px 0px -20px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
 </html>
 
 
