@@ -31,7 +31,7 @@ function initFAQ() {
 
 /* ── Scroll Animations ────────────────────────────────────── */
 function initScrollAnimations() {
-    const targets = document.querySelectorAll('.animate-in');
+    const targets = document.querySelectorAll('.animate-in, .reveal');
     if (!targets.length) return;
 
     const observer = new IntersectionObserver(
@@ -47,6 +47,11 @@ function initScrollAnimations() {
     );
 
     targets.forEach(el => observer.observe(el));
+
+    // Fallback: Reveal everything if for some reason observer fails after 2s
+    setTimeout(() => {
+        targets.forEach(el => el.classList.add('visible'));
+    }, 2000);
 }
 
 /* ── Hero Search Suggestions ────────────────────────────── */

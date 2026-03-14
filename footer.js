@@ -48,7 +48,7 @@
 
   function init() {
     const footer = document.createElement('footer');
-    footer.style.cssText = "background:var(--surface-2);color:var(--text);padding:3.5rem 2rem 2rem;font-family:var(--font);border-top:1px solid var(--border);";
+    footer.className = 'site-footer';
     footer.innerHTML = html;
     document.body.appendChild(footer);
   }
