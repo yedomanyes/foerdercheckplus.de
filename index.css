@@ -4345,4 +4345,56 @@ button:focus-visible {
   color: var(--text-3) !important;
   margin-bottom: 0 !important;
 }
+
+/* -- Premium SaaS Components -------------------------------- */
+.btn-saas {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: #3b82f6;
+  color: white !important;
+  border-radius: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-saas:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+  background: #2563eb;
+  color: white !important;
+}
+
+.cta-premium {
+  background: #0f172a;
+  border-radius: 24px;
+  padding: 32px;
+  color: white;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.cta-premium h3 {
+  color: white !important;
+  margin-bottom: 12px !important;
+  font-size: 1.5rem !important;
+  font-weight: 850 !important;
+  line-height: 1.2 !important;
+}
+
+.cta-premium p {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 24px !important;
+}
+
 
