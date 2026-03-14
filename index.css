@@ -2287,11 +2287,15 @@ button:focus-visible {
 /* ---------- HERO ---------- */
 .hp-hero {
   background: var(--surface);
-  padding: 100px 2rem 80px;
+  padding: 140px 2rem 80px; /* Increased top padding for mobile/nav overlap */
   text-align: center;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 1025px) {
+  .hp-hero { padding: 100px 2rem 80px; }
 }
 
 .hp-hero::after {
@@ -2489,11 +2493,24 @@ button:focus-visible {
   box-shadow: var(--shadow-sm);
 }
 
+@media (max-width: 640px) {
+  .hp-hero__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+  }
+}
+
 .hp-hero__stat {
   flex: 1;
   padding: 1.5rem .5rem;
   text-align: center;
   border-right: 1.5px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .hp-hero__stat:nth-child(2) { border-right: none; }
+  .hp-hero__stat:nth-child(n+3) { border-top: 1.5px solid var(--border); }
 }
 
 .hp-hero__stat:last-child {
