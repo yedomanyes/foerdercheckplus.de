@@ -97,7 +97,7 @@ const PROGRAMS = [
         amount: 'Bis zu 900 €',
         source: 'KfW / Länder',
         url: 'wallbox-foerderung.html',
-        img: 'images/wallbox_card.png',
+        img: 'images/wallbox_hero_2026.jpg',
         tags: ['wallbox', 'laden', 'elektro', 'kfw', 'e-auto', 'mobil'],
     },
     {
