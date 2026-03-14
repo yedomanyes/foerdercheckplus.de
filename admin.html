@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -210,6 +210,7 @@
         <div class="view" id="view-programs">
             <div class="section-header">
                 <h1 class="section-title">Programme</h1>
+                <button class="btn btn-primary" onclick="resetEditor()">+ Neues Programm</button>
             </div>
             <div class="filter-row">
                 <input type="text" id="pgSearch" class="filter-input" placeholder="Titel suchen...">
@@ -293,30 +294,63 @@
     </div>
 </div>
 
-<!-- CONTACT DETAIL MODAL -->
-<div class="modal" id="contactModal">
-    <div class="modal-box" style="max-width:640px;">
+<!-- PROGRAM EDIT MODAL -->
+<div class="modal" id="programModal">
+    <div class="modal-box" style="max-width:800px;">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;">
-            <div>
-                <h2 class="modal-title" id="cm-subject"></h2>
-                <div id="cm-badge" style="margin-top:8px;"></div>
+            <h2 class="modal-title" id="pm-title">Programm bearbeiten</h2>
+            <button onclick="closeModal('programModal')" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-3);">×</button>
+        </div>
+        <form id="programForm">
+            <input type="hidden" id="p-id">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Titel</label>
+                    <input type="text" id="p-title" class="form-control" required placeholder="z.B. Wärmepumpe Förderung 2026">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Slug (URL-Pfad)</label>
+                    <input type="text" id="p-slug" class="form-control" placeholder="waermepumpe-foerderung">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Kategorie</label>
+                    <select id="p-cat" class="filter-select">
+                        <option value="energie">Energie & Haus</option>
+                        <option value="business">Gründen & Business</option>
+                        <option value="mobil">Mobilität</option>
+                        <option value="familie">Familie & Bildung</option>
+                        <option value="wohnen">Wohnen & Kredit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select id="p-status" class="filter-select">
+                        <option value="Entwurf">Entwurf</option>
+                        <option value="Veröffentlicht">Veröffentlicht</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Förderhöhe</label>
+                    <input type="text" id="p-amount" class="form-control" placeholder="z.B. Bis zu 70 %">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">CTA Link (BAFA Portal etc.)</label>
+                    <input type="url" id="p-cta" class="form-control" placeholder="https://www.bafa.de/...">
+                </div>
+                <div class="form-group form-full">
+                    <label class="form-label">Kurzbeschreibung (Card-Text)</label>
+                    <textarea id="p-short" class="form-control" style="min-height:80px;"></textarea>
+                </div>
+                <div class="form-group form-full">
+                    <label class="form-label">Inhalt (HTML erlaubt)</label>
+                    <textarea id="p-content" class="form-control" style="min-height:300px;"></textarea>
+                </div>
             </div>
-            <button onclick="closeModal('contactModal')" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-3);">×</button>
-        </div>
-        <div class="detail-label">Absender</div>
-        <div class="detail-value"><span id="cm-name"></span> · <a id="cm-email" href="#" style="color:var(--blue);"></a></div>
-        <div class="detail-label">Kategorie</div>
-        <div class="detail-value" id="cm-cat"></div>
-        <div class="detail-label">Nachricht</div>
-        <div class="detail-value" id="cm-msg" style="min-height:80px;"></div>
-        <div class="detail-label" style="margin-top:16px;">Status ändern</div>
-        <select id="cm-status" class="filter-select" style="width:100%;margin-bottom:20px;" onchange="updateContactStatus()">
-            <option value="Neu">Neu</option><option value="In Bearbeitung">In Bearbeitung</option><option value="Beantwortet">Beantwortet</option><option value="Archiviert">Archiviert</option>
-        </select>
-        <div class="modal-actions">
-            <button class="btn btn-ghost" onclick="closeModal('contactModal')">Schließen</button>
-            <button class="btn btn-danger" onclick="deleteContactFromModal()">Löschen</button>
-        </div>
+            <div class="modal-actions" style="margin-top:24px;">
+                <button type="button" class="btn btn-ghost" onclick="closeModal('programModal')">Abbrechen</button>
+                <button type="submit" class="btn btn-primary">Speichern</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -457,6 +491,55 @@ function renderPrograms() {
     `).join('');
 }
 
+function editProgram(id) {
+    const p = programs.find(x => x.id === id);
+    if (!p) return;
+    document.getElementById('p-id').value = p.id;
+    document.getElementById('p-title').value = p.title;
+    document.getElementById('p-slug').value = p.slug || '';
+    document.getElementById('p-cat').value = p.category || 'energie';
+    document.getElementById('p-status').value = p.status || 'Entwurf';
+    document.getElementById('p-amount').value = p.fundingAmount || '';
+    document.getElementById('p-cta').value = p.ctaLink || '';
+    document.getElementById('p-short').value = p.shortDesc || '';
+    document.getElementById('p-content').value = p.content || '';
+    document.getElementById('pm-title').textContent = 'Programm bearbeiten';
+    document.getElementById('programModal').classList.add('open');
+}
+
+document.getElementById('programForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('p-id').value;
+    const data = {
+        title: document.getElementById('p-title').value,
+        slug: document.getElementById('p-slug').value,
+        category: document.getElementById('p-cat').value,
+        status: document.getElementById('p-status').value,
+        fundingAmount: document.getElementById('p-amount').value,
+        ctaLink: document.getElementById('p-cta').value,
+        shortDesc: document.getElementById('p-short').value,
+        content: document.getElementById('p-content').value
+    };
+    
+    const method = id ? 'PUT' : 'POST';
+    const url = id ? `${baseUrl}/api/admin/programs/${id}` : `${baseUrl}/api/admin/programs`;
+    
+    const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(data)
+    });
+    
+    if (res.ok) {
+        toast('Gespeichert!');
+        closeModal('programModal');
+        loadPrograms();
+    } else {
+        toast('Fehler beim Speichern', false);
+    }
+});
+
 document.getElementById('pgSearch').addEventListener('input', renderPrograms);
 document.getElementById('pgCatFilter').addEventListener('change', renderPrograms);
 document.getElementById('pgStatusFilter').addEventListener('change', renderPrograms);
@@ -499,6 +582,20 @@ function renderContacts() {
         <td>${statusBadge(c.status)}</td>
         <td><button class="btn btn-ghost btn-sm" onclick="openContact(${c.id})">Details</button></td>
     </tr>`).join('');
+}
+
+function resetEditor() {
+    document.getElementById('p-id').value = '';
+    document.getElementById('p-title').value = '';
+    document.getElementById('p-slug').value = '';
+    document.getElementById('p-cat').value = 'energie';
+    document.getElementById('p-status').value = 'Entwurf';
+    document.getElementById('p-amount').value = '';
+    document.getElementById('p-cta').value = '';
+    document.getElementById('p-short').value = '';
+    document.getElementById('p-content').value = '';
+    document.getElementById('pm-title').textContent = 'Neues Programm erstellen';
+    document.getElementById('programModal').classList.add('open');
 }
 
 document.getElementById('cSearch').addEventListener('input', renderContacts);

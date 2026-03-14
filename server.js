@@ -15,7 +15,13 @@ app.use(cors({
         const allowedOrigins = [
             'http://localhost:3000',
             'http://localhost:5000',
+            'http://localhost:5500',
+            'http://localhost:5501',
+            'http://localhost:5502',
             'http://127.0.0.1:3000',
+            'http://127.0.0.1:5500',
+            'http://127.0.0.1:5501',
+            'http://127.0.0.1:5502',
             'https://www.foerdercheckplus.de',
             'https://foerdercheckplus.de'
         ];
@@ -211,8 +217,8 @@ app.post('/api/admin/programs', requireAdmin, (req, res) => {
     const buttonsJson = JSON.stringify(buttons || []);
 
     db.run(
-        `INSERT INTO programs (title, slug, shortDesc, content, category, region, fundingAmount, status, imageUrl, buttons) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [title, generatedSlug, shortDesc, content, category, region, fundingAmount, status || 'Entwurf', imageUrl, buttonsJson],
+        `INSERT INTO programs (title, slug, shortDesc, content, category, region, fundingAmount, ctaLink, status, imageUrl, buttons) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [title, generatedSlug, shortDesc, content, category, region, fundingAmount, ctaLink, status || 'Entwurf', imageUrl, buttonsJson],
         function(err) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true, id: this.lastID, slug: generatedSlug });
@@ -225,8 +231,8 @@ app.put('/api/admin/programs/:id', requireAdmin, (req, res) => {
     const { title, shortDesc, content, category, region, fundingAmount, status, imageUrl, buttons, slug } = req.body;
     const buttonsJson = JSON.stringify(buttons || []);
     db.run(
-        `UPDATE programs SET title=?, slug=?, shortDesc=?, content=?, category=?, region=?, fundingAmount=?, status=?, imageUrl=?, buttons=?, updatedAt=CURRENT_TIMESTAMP WHERE id=?`,
-        [title, slug, shortDesc, content, category, region, fundingAmount, status, imageUrl, buttonsJson, req.params.id],
+        `UPDATE programs SET title=?, slug=?, shortDesc=?, content=?, category=?, region=?, fundingAmount=?, ctaLink=?, status=?, imageUrl=?, buttons=?, updatedAt=CURRENT_TIMESTAMP WHERE id=?`,
+        [title, slug, shortDesc, content, category, region, fundingAmount, ctaLink, status, imageUrl, buttonsJson, req.params.id],
         function(err) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true });

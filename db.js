@@ -46,6 +46,7 @@ function initDB() {
         category TEXT,
         region TEXT,
         fundingAmount TEXT,
+        ctaLink TEXT,
         status TEXT DEFAULT 'Entwurf',
         imageUrl TEXT,
         buttons TEXT DEFAULT '[]',
