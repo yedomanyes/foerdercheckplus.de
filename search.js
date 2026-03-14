@@ -53,7 +53,7 @@ const PROGRAMS = [
         amount: 'Bis zu 15 Monate',
         source: 'Arbeitsagentur',
         url: 'gruenderzuschuss.html',
-        img: 'images/gruender_card.png',
+        img: 'images/Gründerzuschuss 2026.png',
         tags: ['gründen', 'startup', 'selbstständig', 'arbeitsagentur', 'existenzgründung'],
     },
     {
