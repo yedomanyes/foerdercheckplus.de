@@ -114,7 +114,20 @@
                                     <span class="faq-icon">↓</span>
                                 </button>
                                 <div class="faq-item__content">
-                                    Ja, unter bestimmten Voraussetzungen können auch junge Gebrauchte von der reduzierten Versteuerung profitieren, sofern sie zuvor noch nicht als Dienstwagen mit diesem Vorteil genutzt wurden.
+                                    <div class="faq-item__body">
+                                        Ja, unter bestimmten Voraussetzungen können auch junge Gebrauchte von der reduzierten Versteuerung profitieren, sofern sie zuvor noch nicht als Dienstwagen mit diesem Vorteil genutzt wurden.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-item__trigger">
+                                    Kann ich gleichzeitig die THG-Quote beanspruchen?
+                                    <span class="faq-icon">↓</span>
+                                </button>
+                                <div class="faq-item__content">
+                                    <div class="faq-item__body">
+                                        Ja, die THG-Quote kann jährlich für jedes reine Elektroauto beantragt werden, unabhängig von der Dienstwagen-Versteuerung. Das ist ein zusätzlicher jährlicher Ertrag.
+                                    </div>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -123,7 +136,9 @@
                                     <span class="faq-icon">↓</span>
                                 </button>
                                 <div class="faq-item__content">
-                                    Finanziell ist der Vorteil gegenüber dem reinen E-Auto gesunken (0,5 % vs 0,25 %). Hybride lohnen sich nur noch bei extrem hohen Langstreckenanteilen ohne Lademöglichkeit.
+                                    <div class="faq-item__body">
+                                        Finanziell ist der Vorteil gegenüber dem reinen E-Auto gesunken (0,5 % vs 0,25 %). Hybride lohnen sich nur noch bei extrem hohen Langstreckenanteilen ohne Lademöglichkeit.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -212,14 +227,6 @@
     <script src="main.js"></script>
 
     <script>
-        // FAQ Toggle Logic
-        document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const item = trigger.closest('.faq-item');
-                item.classList.toggle('open');
-            });
-        });
-
         // Sidebar Step Switcher
         document.addEventListener('DOMContentLoaded', () => {
             const steps = document.querySelectorAll('.sidebar-step-item');

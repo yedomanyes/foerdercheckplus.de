@@ -100,8 +100,15 @@
                                     Lohnt sich Photovoltaik in Bayern 2026 noch?
                                     <span class="faq-icon">↓</span>
                                 </button>
+                            <div class="faq-item">
+                                <button class="faq-item__trigger">
+                                    Lohnt sich Photovoltaik in Bayern 2026 noch?
+                                    <span class="faq-icon">↓</span>
+                                </button>
                                 <div class="faq-item__content">
-                                    Ja, absolut. Trotz sinkender Einspeisevergütung machen die hohen Strompreise und die fallenden Preise für Module und Speicher PV-Anlagen extrem rentabel (Amortisation oft nach 8–12 Jahren).
+                                    <div class="faq-item__body">
+                                        Ja, absolut. Trotz sinkender Einspeisevergütung machen die hohen Strompreise und die fallenden Preise für Module und Speicher PV-Anlagen extrem rentabel (Amortisation oft nach 8–12 Jahren).
+                                    </div>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -110,7 +117,9 @@
                                     <span class="faq-icon">↓</span>
                                 </button>
                                 <div class="faq-item__content">
-                                    Für Anlagen bis 30 kWp (Einfamilienhaus) ist der Betrieb seit 2023 komplett von der Einkommensteuer befreit. Auch die Umsatzsteuer auf den Kauf beträgt 0 %.
+                                    <div class="faq-item__body">
+                                        Für Anlagen bis 30 kWp (Einfamilienhaus) ist der Betrieb seit 2023 komplett von der Einkommensteuer befreit. Auch die Umsatzsteuer auf den Kauf beträgt 0 %.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -199,14 +208,6 @@
     <script src="main.js"></script>
 
     <script>
-        // FAQ Toggle Logic
-        document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const item = trigger.closest('.faq-item');
-                item.classList.toggle('open');
-            });
-        });
-
         // Sidebar Step Switcher
         document.addEventListener('DOMContentLoaded', () => {
             const steps = document.querySelectorAll('.sidebar-step-item');
