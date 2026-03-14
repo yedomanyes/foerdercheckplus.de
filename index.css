@@ -869,6 +869,18 @@ h4 {
   }
 }
 
+/* Specific fix for site-footer from footer.js */
+.site-footer {
+  padding: 3rem 1.5rem; /* Add padding so it doesn't stick to the edges */
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+[data-theme="dark"] .site-footer {
+  background: var(--bg);
+}
+
+
 /* -- HERO -------------------------------------------------- */
 .hero {
   position: relative;
@@ -3341,7 +3353,7 @@ button:focus-visible {
 
 @media(max-width:768px) {
   .hp-hero {
-    padding: 64px 1.25rem 56px;
+    padding: 100px 1.25rem 56px; /* Increased top padding to fix navbar overlap */
     text-align: center;
   }
 
@@ -3559,7 +3571,7 @@ button:focus-visible {
   }
 
   .hp-hero__stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr; /* Better 2-column layout on mobile */
     gap: 12px;
   }
 
@@ -4462,8 +4474,36 @@ button:focus-visible {
   color: var(--text);
   margin-bottom: 32px;
   max-width: 900px;
-  margin-left: auto;
   margin-right: auto;
+}
+
+.saas-hero__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+  .saas-hero__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .hero-stat {

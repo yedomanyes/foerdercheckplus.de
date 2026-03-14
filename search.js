@@ -86,7 +86,7 @@ const PROGRAMS = [
         amount: 'Steuervorteile',
         source: 'Finanzamt / Länder',
         url: 'e-auto-foerderung.html',
-        img: 'images/eauto_card.png',
+        img: 'images/eauto_card_2026.png',
         tags: ['elektroauto', 'e-auto', 'ev', 'laden', 'mobilität', 'steuer'],
     },
     {
@@ -661,7 +661,7 @@ window.FoerderSearch = {
                         </div>
                         <h3 class="portal-card__title">${p.name}</h3>
                         <p class="portal-card__desc">${p.desc}</p>
-                        <button class="portal-card__btn">Details ansehen &rarr;</button>
+                        <div class="portal-card__btn">Details ansehen &rarr;</div>
                     </div>
                 </a>`;
             }
