@@ -1370,11 +1370,18 @@ h4 {
   background: var(--surface-2);
   border: 2px solid var(--border);
   border-radius: var(--r-xl);
-  padding: 10px 16px;
+  padding: 8px 12px; /* Slightly tighter on mobile */
   transition: border-color var(--t), box-shadow var(--t);
   max-width: 600px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 0.75rem 0.75rem; /* Less horizontal padding on very small devices */
+  }
 }
 
 .search-bar__input-wrap:focus-within {
@@ -5191,7 +5198,8 @@ button:focus-visible {
 @media (max-width: 640px) {
   .view-toggle { 
     display: flex; 
-    margin-left: 8px; /* Slightly tighter on mobile */
+    margin-left: 10px;
+    flex-shrink: 0; /* Prevent toggle from shrinking */
   } 
   .view-toggle__btn {
     width: 28px;
@@ -5313,17 +5321,31 @@ button:focus-visible {
 }
 
 @media (max-width: 768px) {
+  .programs-grid.view-list .img-card,
+  .programs-grid.view-list .portal-card {
+    padding: 10px;
+    gap: 10px;
+    align-items: flex-start; /* Better for multi-line titles */
+  }
   .programs-grid.view-list .img-card__body,
   .programs-grid.view-list .portal-card__body {
     grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-areas: none; /* Reset areas for mobile */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
   .programs-grid.view-list .img-card__footer,
   .programs-grid.view-list .portal-card__btn {
     width: auto;
     align-self: flex-start;
-    padding: 6px 16px;
-    font-size: 0.75rem;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    margin-top: 4px;
+  }
+  .programs-grid.view-list .img-card__name,
+  .programs-grid.view-list .portal-card__title {
+    font-size: 0.9rem;
   }
 }
 
