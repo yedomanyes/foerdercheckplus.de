@@ -5257,9 +5257,10 @@ button:focus-visible {
   font-size: 0.95rem;
   margin: 0;
   text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Prevents title clipping but maybe too aggressive? Let's use 2 lines for titles if needed or ellipsis */
+  /* Allow wrapping for 100% visibility */
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.3;
 }
 
 .programs-grid.view-list .img-card__desc,
