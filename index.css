@@ -4702,6 +4702,8 @@ button:focus-visible {
 .discovery-scroll-wrapper {
   overflow-x: auto;
   padding-bottom: 20px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
 
@@ -4716,18 +4718,24 @@ button:focus-visible {
   padding: 0 4px;
 }
 
-@media (max-width: 1024px) {
+.discovery-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
   .discovery-scroll-wrapper {
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0 1.25rem 20px;
   }
   .discovery-grid {
-    gap: 20px;
+    gap: 16px;
+    padding: 0;
   }
   .discovery-card {
     flex: 0 0 280px;
-    height: 360px;
-    scroll-snap-align: center;
+    height: 340px;
   }
 }
 
