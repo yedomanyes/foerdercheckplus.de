@@ -2985,8 +2985,8 @@ button:focus-visible {
 }
 
 .hp-prog__name {
-  font-size: 1.25rem !important;
-  font-weight: 800 !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
   color: var(--text) !important;
   margin-bottom: 10px !important;
   line-height: 1.2 !important;
@@ -4210,7 +4210,7 @@ button:focus-visible {
 
 /* Title */
 .img-card__name {
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
   line-height: 1.35;
@@ -4484,7 +4484,7 @@ button:focus-visible {
 }
 
 .saas-hero__h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2rem, 8vw, 4rem);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.04em;
@@ -4513,6 +4513,17 @@ button:focus-visible {
   .saas-hero__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .saas-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 400px;
+  }
+  .saas-hero__h1 {
+    margin-bottom: 24px;
   }
 }
 
@@ -4913,7 +4924,7 @@ button:focus-visible {
 }
 
 .portal-card__title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 12px;
