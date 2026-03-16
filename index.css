@@ -3377,7 +3377,7 @@ button:focus-visible {
 
 @media(max-width:768px) {
   .hp-hero {
-    padding: calc(var(--header-h) + 60px) 1.25rem 56px; /* Increased top padding for better navbar clearance */
+    padding: calc(var(--header-h) + 120px) 1.25rem 56px; /* Significantly increased top padding to fix navbar overlap */
     text-align: center;
   }
 
@@ -5162,8 +5162,9 @@ button:focus-visible {
   background: var(--bg-2);
   padding: 3px;
   border-radius: var(--r-lg);
-  margin-left: 12px;
+  margin: 0 auto; /* Centered in search container */
   border: 1px solid var(--border);
+  width: fit-content;
 }
 
 .view-toggle__btn {
@@ -5198,8 +5199,8 @@ button:focus-visible {
 @media (max-width: 640px) {
   .view-toggle { 
     display: flex; 
-    margin-left: 10px;
-    flex-shrink: 0; /* Prevent toggle from shrinking */
+    margin: 8px auto 0; /* Centered and below input on mobile */
+    flex-shrink: 0; 
   } 
   .view-toggle__btn {
     width: 28px;
