@@ -4913,8 +4913,8 @@ button:focus-visible {
 }
 
 .portal-card__title {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text);
   margin-bottom: 12px;
   line-height: 1.25;
