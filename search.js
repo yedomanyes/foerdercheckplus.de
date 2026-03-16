@@ -318,7 +318,7 @@ const PROGRAMS = [
         amount: 'Bis 50.000€',
         source: 'BMWK',
         url: 'digital-jetzt-foerderung.html',
-        img: 'images/eu_regional_card.png',
+        img: 'images/digital-jetzt-foerderung.png',
         tags: ['digitalisierung', 'it', 'software', 'zuschuss', 'business', 'kmu'],
     },
     {
