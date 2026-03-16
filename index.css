@@ -3380,7 +3380,7 @@ button:focus-visible {
 
 @media(max-width:768px) {
   .hp-hero {
-    padding: calc(var(--header-h) + 120px) 1.25rem 56px; /* Significantly increased top padding to fix navbar overlap */
+    padding: calc(var(--header-h) + 120px) 1.25rem 56px;
     text-align: center;
   }
 
@@ -3628,7 +3628,7 @@ button:focus-visible {
 
 @media(max-width:400px) {
     .hp-hero {
-        padding-top: 40px;
+        padding-top: calc(var(--header-h) + 100px);
     }
     .hp-hero__stat {
         padding: 12px;
