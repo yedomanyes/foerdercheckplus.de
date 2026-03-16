@@ -1,6 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="de">
 <head>
+  <!-- JS Fallback Redirect to www -->
+  <script>
+    if (window.location.hostname === 'foerdercheckplus.de') {
+      window.location.replace('https://www.foerdercheckplus.de' + window.location.pathname + window.location.search);
+    }
+  </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ratgeber & Guides: Ihr Weg zur Förderung | FoerderCheckPlus</title>
