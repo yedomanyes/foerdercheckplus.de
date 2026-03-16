@@ -6,7 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroSearch();
     initNewsletter();
     initHeroSlider();
+    autoWrapDiscoveryGrids();
 });
+
+/* ── Auto-wrap discovery-grids without a scroll wrapper ────── */
+function autoWrapDiscoveryGrids() {
+    document.querySelectorAll('.discovery-grid').forEach(grid => {
+        if (!grid.closest('.discovery-scroll-wrapper')) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'discovery-scroll-wrapper';
+            grid.parentNode.insertBefore(wrapper, grid);
+            wrapper.appendChild(grid);
+        }
+    });
+}
 
 /* ── FAQ Accordion ───────────────────────────────────────── */
 function initFAQ() {
