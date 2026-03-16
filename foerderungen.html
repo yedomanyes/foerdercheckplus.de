@@ -55,26 +55,38 @@
     <script src="header.js"></script>
 
     <!-- -- PAGE HEADER ------------------------------------- -->
-    <section class="hero-slider" id="hero-slider">
-        <div class="slider-container">
-            <!-- Slide 1: Innovation -->
-            <div class="hero-slide active" onclick="location.href='foerderung-forschung-entwicklung.html'">
-                <img src="images/hero-innovation.png" alt="Innovation & Forschung Förderung" class="hero-slide__img">
+    <section class="hero-section" id="hero-section">
+        <div class="container">
+            <div class="hero-grid-pc">
+                <a href="foerderung-forschung-entwicklung.html" class="hero-card-pc">
+                    <img src="images/hero-innovation.png" alt="Innovation & Forschung" class="hero-card-pc__img">
+                </a>
+                <a href="gruenderzuschuss.html" class="hero-card-pc">
+                    <img src="images/hero-startup.png" alt="Startup Förderung" class="hero-card-pc__img">
+                </a>
+                <a href="digital-jetzt-foerderung.html" class="hero-card-pc">
+                    <img src="images/hero-digitalization.png" alt="Digital Jetzt Förderung" class="hero-card-pc__img">
+                </a>
             </div>
-            <!-- Slide 2: Startup -->
-            <div class="hero-slide" onclick="location.href='gruenderzuschuss.html'">
-                <img src="images/hero-startup.png" alt="Startup Förderung" class="hero-slide__img">
+
+            <div class="hero-slider-mobile hero-slider" id="hero-slider">
+                <div class="slider-container">
+                    <div class="hero-slide active" onclick="location.href='foerderung-forschung-entwicklung.html'">
+                        <img src="images/hero-innovation.png" alt="Innovation" class="hero-slide__img">
+                    </div>
+                    <div class="hero-slide" onclick="location.href='gruenderzuschuss.html'">
+                        <img src="images/hero-startup.png" alt="Startup" class="hero-slide__img">
+                    </div>
+                    <div class="hero-slide" onclick="location.href='digital-jetzt-foerderung.html'">
+                        <img src="images/hero-digitalization.png" alt="Digital Jetzt" class="hero-slide__img">
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <button class="slider-dot active" data-index="0"></button>
+                    <button class="slider-dot" data-index="1"></button>
+                    <button class="slider-dot" data-index="2"></button>
+                </div>
             </div>
-            <!-- Slide 3: Digitalization -->
-            <div class="hero-slide" onclick="location.href='digital-jetzt-foerderung.html'">
-                <img src="images/hero-digitalization.png" alt="Digital Jetzt Förderung" class="hero-slide__img">
-            </div>
-        </div>
-        <!-- Slider Dots -->
-        <div class="slider-dots">
-            <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
-            <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
-            <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
         </div>
     </section>
 

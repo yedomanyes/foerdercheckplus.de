@@ -5018,24 +5018,58 @@ button:focus-visible {
 @media (max-width: 640px) {
   .faq-item__trigger {
     padding: 16px 0;
-    font-size: 1rem;
-  }
-  .faq-item__content {
-    padding-bottom: 16px;
     font-size: 0.95rem;
   }
 }
 
-/* -- Hero Slider ------------------------------------------- */
+/* -- Hero Section: Shuffle-Style Grid & Mobile Refined -------- */
+.hero-section {
+  width: 100%;
+  margin-top: calc(var(--header-h) + 32px);
+  padding-bottom: 32px;
+}
+
+.hero-grid-pc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.hero-card-pc {
+  display: block;
+  background: #0f172a;
+  border-radius: 24px; /* Matches Shuffle screenshot rounded feel */
+  overflow: hidden;
+  aspect-ratio: 1578 / 768; /* Strict aspect ratio to match assets */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-card-pc:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+.hero-card-pc__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Edge-to-edge fill */
+}
+
+/* Mobile Slider (Strictly Hidden on PC) */
+.hero-slider-mobile {
+  display: none;
+}
+
 .hero-slider {
   position: relative;
-  width: 95%;
-  max-width: 1200px;
-  margin: 32px auto 0 auto;
-  height: 380px;
+  width: 100%;
+  aspect-ratio: 1578 / 768; /* Perfectly fits the 1 slide on mobile */
   overflow: hidden;
   background: #0f172a;
   border-radius: 24px;
+  box-shadow: var(--shadow-lg);
 }
 
 .slider-container {
@@ -5051,64 +5085,67 @@ button:focus-visible {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transform: scale(1) translateX(20px);
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+  transform: scale(0.98);
+  transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
   pointer-events: none;
 }
 
 .hero-slide.active {
   opacity: 1;
-  transform: scale(1) translateX(0);
+  visibility: visible;
+  transform: scale(1);
   z-index: 10;
   pointer-events: auto;
 }
 
 .hero-slide__img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: brightness(1);
-  transition: transform 8s ease-out;
-}
-
-.hero-slide.active .hero-slide__img {
-  transform: scale(1);
+  object-fit: cover; /* Full visibility, no borders */
 }
 
 .slider-dots {
   position: absolute;
-  bottom: 25px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .slider-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: rgba(255,255,255,0.4);
   border: none;
   cursor: pointer;
-  padding: 0;
-  transition: all 0.3s;
 }
 
 .slider-dot.active {
   background: #fff;
-  width: 24px;
-  border-radius: 8px;
+  width: 18px;
+  border-radius: 4px;
 }
 
 @media (max-width: 768px) {
-  .hero-slider { 
-    height: 220px; 
-    margin-top: 60px; /* Prevent navbar from covering slider */
+  .hero-section {
+    margin-top: calc(var(--header-h) + 16px);
+    padding-bottom: 24px;
+    display: block !important;
+  }
+  .hero-grid-pc {
+    display: none !important;
+  }
+  .hero-slider-mobile {
+    display: block !important;
+    width: 100%;
+    position: relative;
+    background: #0f172a; /* Fallback visibility */
+    border-radius: 20px;
+    overflow: hidden;
   }
 }
 
