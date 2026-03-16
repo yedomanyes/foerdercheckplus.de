@@ -4963,4 +4963,66 @@ button:focus-visible {
 .portal-card:hover .portal-card__btn {
   background: #1e40af;
 }
+
+/* -- FAQ Styles -------------------------------------------- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 24px 0;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: color var(--t-fast);
+  font-family: var(--font);
+}
+
+.faq-item__trigger:hover {
+  color: var(--blue);
+}
+
+.faq-item__icon {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-3);
+  margin-left: 16px;
+  flex-shrink: 0;
+}
+
+.faq-item__content {
+  display: none;
+  padding: 0 0 24px 0;
+  color: var(--text-2);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .faq-item__trigger {
+    padding: 16px 0;
+    font-size: 1rem;
+  }
+  .faq-item__content {
+    padding-bottom: 16px;
+    font-size: 0.95rem;
+  }
+}
 
