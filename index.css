@@ -4707,16 +4707,23 @@ button:focus-visible {
 }
 
 .discovery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
   gap: 32px;
-  min-width: 900px;
+  padding: 0 4px;
 }
 
 @media (max-width: 1024px) {
+  .discovery-scroll-wrapper {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
   .discovery-grid {
-    grid-template-columns: repeat(3, 300px);
     gap: 20px;
+  }
+  .discovery-card {
+    flex: 0 0 300px;
+    scroll-snap-align: center;
   }
 }
 
@@ -5197,9 +5204,16 @@ button:focus-visible {
 }
 
 @media (max-width: 640px) {
+  .results__meta {
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .results__meta-text {
+    font-size: 1rem;
+  }
   .view-toggle { 
     display: flex; 
-    margin: 8px auto 0; /* Centered and below input on mobile */
+    margin: 0; 
     flex-shrink: 0; 
   } 
   .view-toggle__btn {
