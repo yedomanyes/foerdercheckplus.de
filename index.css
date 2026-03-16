@@ -2287,7 +2287,7 @@ button:focus-visible {
 /* ---------- HERO ---------- */
 .hp-hero {
   background: var(--surface);
-  padding: 140px 2rem 80px; /* Increased top padding for mobile/nav overlap */
+  padding: calc(var(--header-h) + 60px) 2.5rem 80px; /* More breathing room */
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2295,7 +2295,7 @@ button:focus-visible {
 }
 
 @media (min-width: 1025px) {
-  .hp-hero { padding: 100px 2rem 80px; }
+  .hp-hero { padding: calc(var(--header-h) + 80px) 2rem 100px; }
 }
 
 .hp-hero::after {
