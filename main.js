@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initHeroSearch();
     initNewsletter();
+    initHeroSlider();
 });
 
 /* ── FAQ Accordion ───────────────────────────────────────── */
@@ -185,3 +186,51 @@ function closeNewsletterPopup() {
     }
 }
 window.closeNewsletterPopup = closeNewsletterPopup;
+
+/* ── Hero Slider ────────────────────────────────────────── */
+function initHeroSlider() {
+    const slider = document.getElementById('hero-slider');
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.hero-slide');
+    const dots = slider.querySelectorAll('.slider-dot');
+    let currentIdx = 0;
+    let autoPlayInterval;
+
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentIdx = index;
+    }
+
+    function nextSlide() {
+        let nextIdx = (currentIdx + 1) % slides.length;
+        showSlide(nextIdx);
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayInterval = setInterval(nextSlide, 7000);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayInterval) clearInterval(autoPlayInterval);
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            showSlide(i);
+            startAutoPlay(); // Reset timer on manual click
+        });
+    });
+
+    // Start
+    startAutoPlay();
+
+    // Pause on hover
+    slider.addEventListener('mouseenter', stopAutoPlay);
+    slider.addEventListener('mouseleave', startAutoPlay);
+}

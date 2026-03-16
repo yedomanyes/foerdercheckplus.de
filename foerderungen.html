@@ -55,12 +55,26 @@
     <script src="header.js"></script>
 
     <!-- -- PAGE HEADER ------------------------------------- -->
-    <section class="page-hero">
-        <div class="page-hero__inner">
-            <div class="page-hero__eyebrow">📋 Alle Programme</div>
-            <h1 class="page-hero__h1">Alle Förderprogramme 2026</h1>
-            <p class="page-hero__sub">Durchsuchen Sie alle staatlichen Zuschüsse und Kredite aus Bund, Ländern und EU.
-                Nutzen Sie die Suche oder filtern Sie nach Kategorien.</p>
+    <section class="hero-slider" id="hero-slider">
+        <div class="slider-container">
+            <!-- Slide 1 -->
+            <div class="hero-slide active" onclick="location.href='digital-jetzt-foerderung.html'">
+                <img src="images/hero-slide-1.png" alt="Digital Jetzt Förderung" class="hero-slide__img">
+            </div>
+            <!-- Slide 2 -->
+            <div class="hero-slide" onclick="location.href='foerderung-heizungstausch-2026.html'">
+                <img src="images/hero-slide-2.png" alt="Heizungsförderung" class="hero-slide__img">
+            </div>
+            <!-- Slide 3 -->
+            <div class="hero-slide" onclick="location.href='foerderung-elektroauto-2026.html'">
+                <img src="images/hero-slide-3.png" alt="E-Auto Förderung" class="hero-slide__img">
+            </div>
+        </div>
+        <!-- Slider Dots -->
+        <div class="slider-dots">
+            <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
         </div>
     </section>
 
@@ -96,7 +110,7 @@
 
     <!-- -- FOOTER -------------------------------------------- -->
     <script src="footer.js"></script>
-
+    <script src="main.js"></script>
     <script src="search.js"></script>
     <script>
         // Navbar burger
