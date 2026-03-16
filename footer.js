@@ -53,9 +53,7 @@
     document.body.appendChild(footer);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  // Call init immediately. Since this script is right inside <body>,
+  // document.body is available, and we avoid DOMContentLoaded race conditions.
+  init();
 })();

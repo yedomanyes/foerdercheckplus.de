@@ -1,6 +1,4 @@
-// header.js – FoerdercheckPlus (shared navbar)
-(function () {
-  const html = `
+<nav class='site-nav'>
   <div class="site-nav__wrap">
     <div class="site-nav__left">
         <a href="/" class="site-nav__logo">
@@ -23,9 +21,8 @@
       <a href="foerderungen.html" class="site-nav__cta">Förderung finden</a>
       <button class="site-nav__burger" id="sn-burger-nav"><span></span><span></span><span></span></button>
     </div>
-  </div>`;
-
-  const menuHtml = `
+  </div></nav>
+<div class='mobile-menu' id='mobile-menu-overlay'>
   <div class="mobile-menu__content">
     <a href="/" class="mobile-menu__link" data-page="index.html">Startseite</a>
     <a href="foerderungen.html" class="mobile-menu__link" data-page="foerderungen.html">Alle Programme</a>
@@ -34,60 +31,4 @@
     <a href="foerderungen.html?kat=mobil" class="mobile-menu__link">Mobilität</a>
     <a href="foerderungen.html?kat=familie" class="mobile-menu__link">Familienhilfe</a>
     <a href="guides.html" class="mobile-menu__link" data-page="guides.html">Guides</a>
-  </div>`;
-
-  function init() {
-    const nav = document.createElement('nav');
-    nav.className = 'site-nav';
-    nav.innerHTML = html;
-    document.body.prepend(nav);
-
-    const menu = document.createElement('div');
-    menu.className = 'mobile-menu';
-    menu.id = 'mobile-menu-overlay';
-    menu.innerHTML = menuHtml;
-    document.body.prepend(menu);
-    
-    setupListeners();
-  }
-
-  function setupListeners() {
-    const burger = document.getElementById('sn-burger-nav');
-    const overlay = document.getElementById('mobile-menu-overlay');
-    const themeBtn = document.getElementById('theme-toggle-nav');
-    
-    burger?.addEventListener('click', () => {
-        burger.classList.toggle('open');
-        overlay.classList.toggle('open');
-        document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
-    });
-
-    overlay?.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            burger.classList.remove('open');
-            overlay.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-    });
-
-    themeBtn?.addEventListener('click', () => {
-        const root = document.documentElement;
-        const isDark = root.getAttribute('data-theme') === 'dark';
-        if (isDark) {
-            root.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-        } else {
-            root.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-  }
-
-  // Pre-apply theme
-  const t = localStorage.getItem("theme");
-  if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
-
-  // Call init immediately. Since this script is right inside <body>,
-  // document.body is available, and we avoid DOMContentLoaded race conditions.
-  init();
-})();
+  </div></div>
