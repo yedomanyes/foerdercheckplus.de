@@ -9,11 +9,19 @@
     content="Alle Förderprogramme von Bund, Ländern und EU verständlich erklärt. Kostenlos die passende Förderung finden.">
   <link rel="canonical" href="https://foerdercheckplus.de/">
   <link rel="icon" type="image/x-icon" href="favicon.svg">
+  <!-- DNS Prefetch for faster external connections -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="index.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="index.css"></noscript>
+  <!-- Fonts: display=swap for fast text rendering -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
   <script>
     // Initialize theme before rendering to avoid flash
@@ -25,8 +33,8 @@
     }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4VE8HX6XX"></script>
+  <!-- Google tag (gtag.js) - deferred for performance -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-N4VE8HX6XX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -34,7 +42,7 @@
     gtag('config', 'G-N4VE8HX6XX');
   </script>
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2068043467304653"
+  <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2068043467304653"
     crossorigin="anonymous"></script>
 </head>
 
@@ -654,120 +662,10 @@
     </div>
   </section>
 
-  <script src="footer.js"></script>
+  <script src="footer.js" defer></script>
 
-  <script>
-    // Navbar burger handled by script below, but just in case
-    const hpBurger = document.getElementById('hp-burger');
-    const hpMobile = document.getElementById('hp-mobile-nav');
-    hpBurger?.addEventListener('click', () => {
-      hpMobile?.classList.toggle('open');
-    });
-
-    // Hero search
-    const heroInput = document.getElementById('hero-search');
-    const heroBtn = document.getElementById('hero-search-btn');
-    heroBtn?.addEventListener('click', () => {
-      const q = heroInput?.value.trim();
-      window.location.href = q ? `foerderungen.html?q=${encodeURIComponent(q)}` : 'foerderungen.html';
-    });
-    heroInput?.addEventListener('keydown', e => {
-      if (e.key === 'Enter') heroBtn?.click();
-    });
-
-    // Hero tags
-    document.querySelectorAll('.hp-hero__tag').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const q = btn.dataset.q || btn.textContent.replace(/^[^\w]*/, '').trim();
-        window.location.href = `foerderungen.html?q=${encodeURIComponent(q)}`;
-      });
-    });
-
-    // FAQ accordion
-    document.querySelectorAll('.hp-faq-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.hp-faq-item');
-        const wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.hp-faq-item').forEach(i => i.classList.remove('open'));
-        if (!wasOpen) item.classList.add('open');
-      });
-    });
-
-    // States Show More
-    const statesBtn = document.getElementById('show-more-states');
-    const statesGrid = document.getElementById('states-grid');
-    statesBtn?.addEventListener('click', () => {
-      statesGrid.classList.toggle('show-all');
-      if (statesGrid.classList.contains('show-all')) {
-        statesBtn.textContent = 'Weniger anzeigen';
-      } else {
-        statesBtn.textContent = 'Alle Bundesländer anzeigen';
-        const statesSec = document.getElementById('bundeslaender');
-        if (statesSec) statesSec.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-
-    // Progs Show More
-    const progsBtn = document.getElementById('show-more-progs');
-    const progsGrid = document.getElementById('progs-grid');
-    progsBtn?.addEventListener('click', () => {
-      progsGrid.classList.toggle('show-all');
-      if (progsGrid.classList.contains('show-all')) {
-        progsBtn.textContent = 'Weniger anzeigen';
-      } else {
-        progsBtn.textContent = 'Weitere Programme anzeigen';
-        const progsSec = progsGrid.closest('.hp-sec');
-        if (progsSec) progsSec.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-
-    // Cats Show More
-    const catsBtn = document.getElementById('show-more-cats');
-    const catsGrid = document.getElementById('cats-grid');
-    catsBtn?.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        // On mobile, toggle horizontal scrolling mode
-        catsGrid.classList.toggle('is-scrolling');
-        if (catsGrid.classList.contains('is-scrolling')) {
-          catsBtn.textContent = 'Standard-Ansicht';
-          // Scroll to start of the row
-          catsGrid.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          catsBtn.textContent = 'Weitere Kategorien anzeigen (Horizontal)';
-        }
-      } else {
-        // On desktop, toggle vertical expansion
-        catsGrid.classList.toggle('show-all');
-        if (catsGrid.classList.contains('show-all')) {
-          catsBtn.textContent = 'Weniger anzeigen';
-        } else {
-          catsBtn.textContent = 'Weitere Kategorien anzeigen';
-          const catsSec = catsGrid.closest('.hp-sec');
-          if (catsSec) catsSec.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-
-    // Scroll animations
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: .1, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.hp-cat,.hp-prog,.hp-step,.hp-state').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity .5s ease, transform .5s ease';
-      obs.observe(el);
-    });
-  </script>
-  <script src="main.js"></script>
-  <script src="inject-tags.js"></script>
+  <script defer src="main.js"></script>
+  <script defer src="inject-tags.js"></script>
 </body>
 
 </html>
