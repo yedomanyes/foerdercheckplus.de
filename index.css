@@ -5148,4 +5148,209 @@ button:focus-visible {
     overflow: hidden;
   }
 }
+
+/* View Toggle Switcher */
+.view-toggle {
+  display: flex;
+  background: var(--bg-2);
+  padding: 3px;
+  border-radius: var(--r-lg);
+  margin-left: 12px;
+  border: 1px solid var(--border);
+}
+
+.view-toggle__btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  border-radius: calc(var(--r-lg) - 4px);
+  transition: all var(--t);
+}
+
+.view-toggle__btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.view-toggle__btn:hover {
+  color: var(--blue);
+}
+
+.view-toggle__btn.active {
+  background: var(--surface);
+  color: var(--blue);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 640px) {
+  .view-toggle { 
+    display: flex; 
+    margin-left: 8px; /* Slightly tighter on mobile */
+  } 
+  .view-toggle__btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* List View Layout Modifiers (Ultra-Simplified) */
+.programs-grid.view-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.programs-grid.view-list .img-card,
+.programs-grid.view-list .portal-card {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  gap: 12px;
+}
+
+.programs-grid.view-list .img-card__img-wrap,
+.programs-grid.view-list .portal-card__img-wrap {
+  width: 80px; /* Much smaller image as requested */
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.programs-grid.view-list .img-card__body,
+.programs-grid.view-list .portal-card__body {
+  padding: 0;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 110px; /* Reduced to 110px for the shorter 'Anzeigen' label */
+  grid-template-areas: 
+    "badges action"
+    "title  action"
+    "desc   action";
+  align-items: center;
+  gap: 4px 20px;
+  text-align: left;
+  min-width: 0; /* Important for grid responsiveness */
+}
+
+.programs-grid.view-list .img-card__badges,
+.programs-grid.view-list .portal-card__badges { 
+  grid-area: badges; 
+  margin-bottom: 0;
+  gap: 6px;
+  justify-content: flex-start;
+  flex-wrap: wrap; /* Prevents badge clipping */
+}
+
+.programs-grid.view-list .img-card__name,
+.programs-grid.view-list .portal-card__title { 
+  grid-area: title;
+  font-size: 0.95rem;
+  margin: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Prevents title clipping but maybe too aggressive? Let's use 2 lines for titles if needed or ellipsis */
+}
+
+.programs-grid.view-list .img-card__desc,
+.programs-grid.view-list .portal-card__desc { 
+  grid-area: desc;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin: 0;
+  text-align: left;
+}
+
+.programs-grid.view-list .img-card__amount,
+.programs-grid.view-list .portal-card__badge--dark {
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  background: var(--bg-2);
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.programs-grid.view-list .img-card__footer,
+.programs-grid.view-list .portal-card__btn { 
+  grid-area: action;
+  font-size: 0.7rem;
+  padding: 8px 12px;
+  background: var(--blue-l);
+  color: var(--blue);
+  border-radius: 6px;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--t);
+  cursor: pointer;
+}
+
+.programs-grid.view-list .img-card__footer:hover,
+.programs-grid.view-list .portal-card__btn:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .programs-grid.view-list .img-card__body,
+  .programs-grid.view-list .portal-card__body {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .programs-grid.view-list .img-card__footer,
+  .programs-grid.view-list .portal-card__btn {
+    width: auto;
+    align-self: flex-start;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Desktop Polish for List View */
+@media (min-width: 1025px) {
+  .programs-grid.view-list .img-card,
+  .programs-grid.view-list .portal-card {
+    padding: 16px 24px;
+    gap: 24px;
+  }
+  .programs-grid.view-list .img-card__body,
+  .programs-grid.view-list .portal-card__body {
+    grid-template-columns: 1fr 140px; /* Wider button column for PC prominence */
+    gap: 32px;
+  }
+  .programs-grid.view-list .img-card__img-wrap,
+  .programs-grid.view-list .portal-card__img-wrap {
+    width: 120px;
+    height: 84px;
+  }
+  .programs-grid.view-list .img-card__name,
+  .programs-grid.view-list .portal-card__title {
+    font-size: 1.05rem;
+  }
+  .programs-grid.view-list .img-card__footer,
+  .programs-grid.view-list .portal-card__btn {
+    font-size: 0.85rem; /* Larger font for desktop clarity */
+    padding: 10px 16px; 
+  }
+}
 

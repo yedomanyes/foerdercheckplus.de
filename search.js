@@ -648,24 +648,7 @@ window.FoerderSearch = {
         };
 
         container.innerHTML = programs.map(p => {
-            if (p.id === 'kfw') {
-                return `
-                <a href="${p.url}" class="portal-card animate-in" data-category="${p.category}">
-                    <div class="portal-card__img-wrap">
-                        <img src="${p.img}" alt="${p.name}" class="portal-card__img" loading="lazy">
-                    </div>
-                    <div class="portal-card__body">
-                        <div class="portal-card__badges">
-                            <span class="portal-card__badge portal-card__badge--blue">${catLabels[p.category] || p.category}</span>
-                            <span class="portal-card__badge portal-card__badge--dark">${p.amount}</span>
-                        </div>
-                        <h3 class="portal-card__title">${p.name}</h3>
-                        <p class="portal-card__desc">${p.desc}</p>
-                        <div class="portal-card__btn">Details ansehen &rarr;</div>
-                    </div>
-                </a>`;
-            }
-
+            // Unify: KfW now uses the same high-standard template as all other programs
             return `
       <a href="${p.url}" class="img-card animate-in" data-category="${p.category}">
         <div class="img-card__img-wrap">
@@ -679,7 +662,7 @@ window.FoerderSearch = {
           <h3 class="img-card__name">${p.name}</h3>
           <p class="img-card__desc">${p.desc}</p>
           <div class="img-card__footer">
-            <span class="img-card__btn">Details ansehen →</span>
+            <span class="img-card__btn">Anzeigen →</span>
           </div>
         </div>
       </a>`;
@@ -727,6 +710,35 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     render();
+
+    /* -- View Toggle Logic ----------------------------------- */
+    const viewToggle = document.getElementById('view-toggle');
+    const toggleBtns = viewToggle?.querySelectorAll('.view-toggle__btn');
+    
+    // Load saved view or default to grid
+    const savedView = localStorage.getItem('program-view') || 'grid';
+    if (savedView === 'list') {
+        resultsGrid.classList.add('view-list');
+        toggleBtns?.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.view === 'list');
+        });
+    }
+
+    toggleBtns?.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const view = btn.dataset.view;
+            toggleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            if (view === 'list') {
+                resultsGrid.classList.add('view-list');
+            } else {
+                resultsGrid.classList.remove('view-list');
+            }
+            
+            localStorage.setItem('program-view', view);
+        });
+    });
 
     if (searchInput) {
         searchInput.addEventListener('input', () => { currentQuery = searchInput.value; render(); });
